@@ -1,4 +1,4 @@
-Basic idea "show your best foto" contest
+Basic idea ongoing "show your best foto" contest
 - social app for users to upload their "best" fotos to share and allow other
   users vote on them in an ongoing foto contest
   
@@ -10,16 +10,16 @@ Home page
 - ?? what else if anything can a visitor do without logging in ??
 
 Join page (create a new user)
-- login form and set up basic profile
+- new user form and set up basic profile
 
-========================
-Once logged in User can
-========================
+==============================================
+Once logged in a User can see/do the following
+==============================================
 
-Profile page
-- view/edit profile info
-- add/edit captions to their current fotos
-- add/delete/replace their own fotos
+User Profile page
+- view/edit your profile info
+- add/edit captions to your current fotos
+- add/delete/replace your own fotos
 
 Browse page 
 - all users fotos page (overview with smaller images)
@@ -35,27 +35,41 @@ Browse page
 Some rules/assumptions
 1) a given user can only vote for a given foto once
 2) no user votes for their own fotos (assumes everyone would vote for their own
-   or they would not have posted so those votes all cancel each other)
-3) a user could vote for every foto on the site that isn't their own, but why?
-4) a given user can have 5-10 fotos of theirs at a time .... if one of them is
-   not getting upvoted enough than they may want to replace it
+   or they would not have posted that foto in the first place so those votes all 
+   cancel each other)
+3) a user could vote for every foto on the site that isn't their own, but why would they?
+4) a given user can have max of 5-10 fotos of theirs up at a time .... if one of them is
+   not getting upvoted enough than they can choose to replace it
 5) anytime a foto gets a new vote, immediately check to see if it has enough votes to 
-    replace one of the current top 5
+    replace one of the current top 5. This seems cleaner than some time interval check since
+    the only time this would change is if some user casts a new vote....except when an image
+    gets deleted....so need to make sure and cover that as well
 6) fotos in the current top 3-5 may continue to receive votes
+7) for now, adding a foto will expect all user's to grab a foto from the same
+    single folder on my machine that has a big pool of pre-populated images
+8) for midterm, not going to go to special lengths to protect user login data
 
    
 Some questions
 1) other than seeing the current top 3-5 and joining, should visitor be able to 
-   do anything else? (maybe...see recently submitted)
+   do anything else without logging in ? (maybe...like view recently submitted?)
 2) how would I keep a user from voting for the same foto multiple times?
 3) allow users to comment on others fotos?
-4) in general, do I want to hide or show the userNames for fotos?
+4) in general, do I want to hide or show the users for fotos? (might be cleaner voting 
+    without knowing who submitted?)....but users are going to want credit for their fotos...
+    so probably best to show users
 5) how do I efficiently find the 3-5 highest voted fotos to populate the carousel at initial
     load?
 6) do I (need) to have any partial views on a given page??
+7) does/should fotoCarousel live in factory too or is that just something that gets created/updated
+    when that page active
 
 basic architecture
 - separate controllers for each "page"
-- "shared" factory that holds the array of user objects and their current fotos
+- "shared" factory that holds the array of user and their objects and their current fotos
     - for now, factory will have some prepopulated users and images with votes
 
+objects
+- user (username, password, contactInfo?, array of fotoObjects)
+- fotoObjects(username, img, caption, voteCount, comments?)
+- fotoCarousel( array of fotoObjects)...with the X highest vote counts
