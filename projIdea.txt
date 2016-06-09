@@ -1,0 +1,61 @@
+Basic idea "show your best foto" contest
+- social app for users to upload their "best" fotos to share and allow other
+  users vote on them in an ongoing foto contest
+  
+  
+Home page
+- carousel of the current top 3-5 voted fotos from amongst all users submissions
+- join link
+- login link
+- ?? what else if anything can a visitor do without logging in ??
+
+Join page (create a new user)
+- login form and set up basic profile
+
+========================
+Once logged in User can
+========================
+
+Profile page
+- view/edit profile info
+- add/edit captions to their current fotos
+- add/delete/replace their own fotos
+
+Browse page 
+- all users fotos page (overview with smaller images)
+- select a specific foto to get better/larger view, show captions, comments? vote count?
+- upvote a foto
+
+(WBNI)Recently submitted page
+- based on what criteria?
+    - last day/week/month
+    - last login by this user?
+    - allow user to specify?
+
+Some rules/assumptions
+1) a given user can only vote for a given foto once
+2) no user votes for their own fotos (assumes everyone would vote for their own
+   or they would not have posted so those votes all cancel each other)
+3) a user could vote for every foto on the site that isn't their own, but why?
+4) a given user can have 5-10 fotos of theirs at a time .... if one of them is
+   not getting upvoted enough than they may want to replace it
+5) anytime a foto gets a new vote, immediately check to see if it has enough votes to 
+    replace one of the current top 5
+6) fotos in the current top 3-5 may continue to receive votes
+
+   
+Some questions
+1) other than seeing the current top 3-5 and joining, should visitor be able to 
+   do anything else? (maybe...see recently submitted)
+2) how would I keep a user from voting for the same foto multiple times?
+3) allow users to comment on others fotos?
+4) in general, do I want to hide or show the userNames for fotos?
+5) how do I efficiently find the 3-5 highest voted fotos to populate the carousel at initial
+    load?
+6) do I (need) to have any partial views on a given page??
+
+basic architecture
+- separate controllers for each "page"
+- "shared" factory that holds the array of user objects and their current fotos
+    - for now, factory will have some prepopulated users and images with votes
+
