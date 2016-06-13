@@ -7,7 +7,8 @@ angular.module("fotoChallenge")
     console.log("fotoUserController");
 
     fotoUser.title = "User Profile";
-    //fotoUser.items = fotoFactory.data;
+    fotoUser.currentUser = fotoFactory.currentUser;
+    fotoUser.fotoUsersList = fotoFactory.fotoUsersList;
 
 //    todo.addItem = function(){
 //      console.log("Adding Item!!!!");

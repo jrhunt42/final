@@ -7,7 +7,8 @@ angular.module("fotoChallenge")
     console.log("fotoBrowserController");
 
     fotoBrowser.title = "Foto Browser";
-    //fotoBrowser.items = fotoFactory.data;
+    fotoBrowser.currentUser = fotoFactory.currentUser;
+    fotoBrowser.fotoUsersList = fotoFactory.fotoUsersList;
 
 
 //    done.completedItems = function(){

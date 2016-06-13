@@ -5,6 +5,15 @@ Basic idea ongoing "show your best foto" contest
   
 Home page
 - carousel of the current top 3-5 voted fotos from amongst all users submissions
+- challenge text banner?
+- under About contest
+    - basic rules
+    - must join to participate
+    - one vote per user per foto
+    - can't vote for your own
+    - each user can submit up to five of their best/favorite fotos
+    - a user can add/delete/(replace?) fotos at any time
+    
 - join link
 - login link
 - ?? what else if anything can a visitor do without logging in ??
@@ -73,3 +82,17 @@ objects
 - user (username, password, contactInfo?, array of fotoObjects)
 - fotoObjects(username, img, caption, voteCount, comments?)
 - fotoCarousel( array of fotoObjects)...with the X highest vote counts
+
+User Stories
+- view the current top voted fotos
+- create new user
+- login as existing user
+    - logout
+- logged in user 
+    - add foto to their fotos
+    - delete one of their fotos
+    - replace one of their fotos
+    - add caption to one of their foto
+- logged in user browse all fotos
+- logged in user vote for a foto
+- logged in user 

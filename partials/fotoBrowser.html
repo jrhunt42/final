@@ -6,16 +6,22 @@
     <input type="checkbox" ng-model="todo.newItem.complete">
     <button type="button" ng-click="todo.addItem()" name="button">Add Item</button>
 -->
-    <div class="row">
-        <ul>
-            <li></li>
-        </ul>
-    </div>
-
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
         <a ui-sref-active="active" ui-sref="userProfile">User Profile</a>
         <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
         <a ui-sref-active="active" ui-sref="fotoLogin">Login</a>
     </nav>
+    
+    <div class="row">
+        <ul>
+            <li ng-repeat="user in fotoBrowser.fotoUsersList">
+                <h4>currentUser= {{user.user}}</h4>
+                <div ng-repeat="foto in user.fotos">
+                    <img ng-src={{foto.imgPath}} height=300 weight=300>
+                </div>
+            </li>
+        </ul>
+    </div>
+
 </div>

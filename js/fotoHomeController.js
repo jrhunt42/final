@@ -7,7 +7,7 @@ angular.module("fotoChallenge")
     console.log("fotoHomeController");
 
     fotoHome.title = "Foto Home page";
-    //fotoHome.items = fotoFactory.data;
+    fotoHome.carousel = fotoFactory.fotoCarousel;
 
 //    todo.addItem = function(){
 //      console.log("Adding Item!!!!");
