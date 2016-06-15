@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h1 class="jumbotron text-center">{{fotoUser.title}}</h1>
+    <h1 class="jumbotron text-center">{{fotoUser.currentUser.user}} Profile</h1>
 
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
@@ -10,7 +10,7 @@
     </nav>
     
     <div class="row">
-        <h4>Current User = {{fotoUser.currentUser.user}}</h4>
+        <!-- <h4>Current User = {{fotoUser.currentUser.user}}</h4> -->
 
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoUsersList[fotoUser.currentUser.user].fotos">
                 <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->

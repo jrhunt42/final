@@ -8,7 +8,7 @@ angular.module("fotoChallenge")
 
     fotoHome.title = "Foto Wars";
     fotoHome.carousel = fotoFactory.fotoCarousel;
-    fotoHome.carouselInterval = 4000;
+    fotoHome.carouselInterval = 3000;
     fotoHome.loggedIn = fotoFactory.loggedIn;
 
 //    todo.addItem = function(){

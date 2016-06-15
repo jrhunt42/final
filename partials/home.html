@@ -16,7 +16,7 @@
       <div style="height: 400px">
         <uib-carousel active="active" interval="fotoHome.carouselInterval" no-wrap="noWrapSlides">
               <!-- <uib-slide ng-repeat="slide in fotoHome.carousel.fotos track by slide.id" index="slide.id"> -->
-              <uib-slide ng-repeat="slide in fotoHome.carousel.fotos " index="$index">
+              <uib-slide ng-repeat="slide in fotoHome.carousel.fotos track by $index" index="$index">
                 <img class="img-responsive" ng-src={{slide.imgPath}} height=200 weight=200 style="margin:auto;">
                 <div class="carousel-caption">
                   <h4>Slide {{$index+1}}</h4>
