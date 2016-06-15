@@ -10,8 +10,15 @@
     </nav>
     
     <div class="row">
-        <h4>My Fotos</h4>
+        <h3>My Fotos</h3>
         <br>
+        <form>
+            <div>
+                <h5>Contact Info</h5>
+                <p>Email: {{fotoUser.currentUser.contactInfo[0]}}</p>
+                <p>Phone: {{fotoUser.currentUser.contactInfo[1]}}</p>
+            </div>
+        </form>
         <form>
             <div class="form-group">
                 <label for="exampleInputFile">Add a Foto</label>

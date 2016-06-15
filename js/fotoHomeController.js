@@ -10,6 +10,37 @@ angular.module("fotoChallenge")
     fotoHome.carousel = fotoFactory.fotoCarousel;
     fotoHome.carouselInterval = 3000;
     fotoHome.loggedIn = fotoFactory.loggedIn;
+    fotoHome.showNewUserForm = false;
+    
+    fotoHome.showForm = function() {
+      console.log("show new user form");
+      fotoHome.showNewUserForm = true;
+    };
+    
+    fotoHome.createNewUser = function(){
+      //hide input form
+      //process the submitted info to create a new foto user
+      //add new user to fotoUsersList
+      fotoHome.showNewUserForm = false;
+      // check for duplicate user name
+      if(fotoFactory.fotoUsersList.hasOwnProperty(fotoHome.newUserName)) {
+        //this user already exists
+        console.log("create new user duplicate name");
+        alert("Duplicate user name, use a different name");
+        return;
+      }
+      var contactInfo = [fotoHome.newUserEmail, fotoHome.newUserPhone];
+      var newUser = new fotoFactory.FotoUser(fotoHome.newUserName, fotoHome.newUserPassword,contactInfo,[]);
+      fotoFactory.fotoUsersList[fotoHome.newUserName] = newUser;
+      fotoFactory.currentUser = newUser;
+      fotoFactory.loggedIn = true;
+      fotoHome.loggedIn = true;
+      
+    };
+    
+    fotoHome.cancelNewUser = function() {
+      fotoHome.showNewUserForm = false;
+    }
 
 //    todo.addItem = function(){
 //      console.log("Adding Item!!!!");
@@ -17,15 +48,5 @@ angular.module("fotoChallenge")
 //      todo.newItem = {};
 //    };
     
-//    todo.activeItems = function(){
-//      console.log("checking for active items");
-//      var active = [];
-//      for (var i=0; i<todo.items.length; i++) {
-//        if(!todo.items[i].complete) {
-//          active.push(todo.items[i]);
-//        }
-//      }
-//      return active;
-//    };
-    
+
   }

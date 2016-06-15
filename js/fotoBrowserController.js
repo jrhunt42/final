@@ -12,6 +12,10 @@ angular.module("fotoChallenge")
     fotoBrowser.loggedIn = fotoFactory.loggedIn;
     fotoBrowser.fotoUsersList = fotoFactory.fotoUsersList;
     
+    fotoBrowser.bigFoto = function(foto) {
+      console.log("fotoBrowser bigFoto");
+    };
+    
     fotoBrowser.newVote = function(foto) {
       //console.log("fotoBrowser.newVote with fotoUser:" + foto.user + " and currentUser: " + fotoBrowser.currentUser.user);
       // check to make sure this user can vote on this foto

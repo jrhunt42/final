@@ -106,15 +106,15 @@ function fotoFactory() {
       
       //create some static data
       // some foto objects
-      var johnFoto1 = new FotoObject("john", "https://pixabay.com/static/uploads/photo/2014/12/03/08/11/rhodesian-ridgeback-555187_960_720.jpg", "dummy caption",0,[],[],false, Date.now());
-      var bikeFoto1 = new FotoObject("bikenut","https://upload.wikimedia.org/wikipedia/commons/1/15/027_Cycling_Torres_del_Paine.jpg","dummy caption",0, [], [], false, Date.now());
-      var bikeFoto2 = new FotoObject("bikenut","http://www.free-motion.com/uploads/tx_templavoila/LA4A9937_1_MTB_Tourenprogramm_03.jpg","dummy caption",0,[], [], false, Date.now());
-      var kelseyFoto1 = new FotoObject("kelsey","http://i484.photobucket.com/albums/rr205/masingad/MountainScene.jpg", "dummy caption", 0, [],[],false,Date.now());
-      var kelseyFoto2 = new FotoObject("kelsey","http://www.skiingthebackcountry.com/images/2211.jpg","dummy caption",0,[],[],false,Date.now());
+      var johnFoto1 = new FotoObject("john", "https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP1249.JPG", "dummy caption",0,[],[],false, Date.now());
+      var bikeFoto1 = new FotoObject("bikenut","https://cohort-work-jrhunt42.c9users.io/midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], false, Date.now());
+      var bikeFoto2 = new FotoObject("bikenut","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0603.JPG","dummy caption",0,[], [], false, Date.now());
+      var kelseyFoto1 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],false,Date.now());
+      var kelseyFoto2 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0473.JPG","dummy caption",0,[],[],false,Date.now());
       // some users
-      var john = new FotoUser("john", "pwjohn", [], [ johnFoto1 ]);
-      var bikenut = new FotoUser("bikenut", "pwbikenut", [], [ bikeFoto1, bikeFoto2 ]);
-      var kelsey = new FotoUser("kelsey", "pwkelsey", [], [kelseyFoto1, kelseyFoto2]);
+      var john = new FotoUser("john", "pwjohn", ["abc@gmail.com", "123-456-7890"], [ johnFoto1 ]);
+      var bikenut = new FotoUser("bikenut", "pwbikenut", ["xyz@yahoo.com", "987-654-3210"], [ bikeFoto1, bikeFoto2 ]);
+      var kelsey = new FotoUser("kelsey", "pwkelsey", ["wtf@hotmail.com", "303-867-5309"], [kelseyFoto1, kelseyFoto2]);
       
       //initial user list
       var fotoUsersList = {
