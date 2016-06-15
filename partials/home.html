@@ -1,26 +1,50 @@
 <div class="container">
 
     <h1 class="jumbotron text-center">{{fotoHome.title}}</h1>
-<!--    <label>To Do Item:</label>
-    <input type="text" ng-model="todo.newItem.name">
-    <input type="checkbox" ng-model="todo.newItem.complete">
-    <button type="button" ng-click="todo.addItem()" name="button">Add Item</button>
--->
+
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ui-sref-active="active" ui-sref="userProfile">User Profile</a>
+        <a ng-show="fotoHome.loggedIn" ui-sref-active="active" ui-sref="userProfile">User Profile</a>
         <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
-        <a ui-sref-active="active" ui-sref="fotoLogin">Login</a>
+        <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
 
     </nav>
     
     <div class="row">
-        <ul>
+      <hr>
+      <h1 class="text-center">Current Top Fotos</h1>
+      <div style="height: 400px">
+        <uib-carousel active="active" interval="fotoHome.carouselInterval" no-wrap="noWrapSlides">
+              <!-- <uib-slide ng-repeat="slide in fotoHome.carousel.fotos track by slide.id" index="slide.id"> -->
+              <uib-slide ng-repeat="slide in fotoHome.carousel.fotos " index="$index">
+                <img class="img-responsive" ng-src={{slide.imgPath}} height=200 weight=200 style="margin:auto;">
+                <div class="carousel-caption">
+                  <h4>Slide {{$index+1}}</h4>
+                  <p>voteCount = {{slide.voteCount}}</p>
+                </div>
+              </uib-slide>
+        </uib-carousel>
+      </div>
+<!--        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <carousel interval="fotoHome.carouselInterval">
+                <!-- <slide ng-repeat="slide in slides" active="slide.active">
+                <slide ng-repeat="slide in fotoHome.carousel.fotos" active="slide.active">
+                  <img ng-src={{slide.imgPath}} height=300 weight=300>
+                  <div class="carousel-caption">
+                    <h4>Slide {{$index+1}}</h4>
+                  </div>
+                </slide>
+              </carousel>
+        </div>
+-->          
+        
+<!--        <ul>
             <li ng-repeat="foto in fotoHome.carousel.fotos">
                 <img ng-src={{foto.imgPath}} height=300 weight=300>
             </li>
 
         </ul>
+-->
     </div>
 
 </div>

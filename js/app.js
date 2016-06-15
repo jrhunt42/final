@@ -1,4 +1,4 @@
-angular.module("fotoChallenge",['ui.router'])
+angular.module("fotoChallenge",['ui.router', 'ngAnimate','ui.bootstrap'])
   .config(todoRouter);
 
 todoRouter.$inject = ['$stateProvider', '$urlRouterProvider'];

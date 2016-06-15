@@ -6,8 +6,10 @@ angular.module("fotoChallenge")
     var fotoHome = this;
     console.log("fotoHomeController");
 
-    fotoHome.title = "Foto Home page";
+    fotoHome.title = "Foto Wars";
     fotoHome.carousel = fotoFactory.fotoCarousel;
+    fotoHome.carouselInterval = 4000;
+    fotoHome.loggedIn = fotoFactory.loggedIn;
 
 //    todo.addItem = function(){
 //      console.log("Adding Item!!!!");

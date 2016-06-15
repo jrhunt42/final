@@ -1,25 +1,24 @@
 <div class="container">
 
     <h1 class="jumbotron text-center">{{fotoUser.title}}</h1>
-<!--    <label>To Do Item:</label>
-    <input type="text" ng-model="todo.newItem.name">
-    <input type="checkbox" ng-model="todo.newItem.complete">
-    <button type="button" ng-click="todo.addItem()" name="button">Add Item</button>
--->
+
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ui-sref-active="active" ui-sref="userProfile">User Profile</a>
+        <a ng-show="fotoUser.loggedIn" ui-sref-active="active" ui-sref="userProfile">User Profile</a>
         <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
-        <a ui-sref-active="active" ui-sref="fotoLogin">Login</a>
+        <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
     </nav>
     
     <div class="row">
         <h4>Current User = {{fotoUser.currentUser.user}}</h4>
-        <ul>
-            <li ng-repeat="foto in fotoUser.fotoUsersList[fotoUser.currentUser.user].fotos">
-                <img ng-src={{foto.imgPath}} height=300 weight=300>
-            </li>
-        </ul>
+
+        <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoUsersList[fotoUser.currentUser.user].fotos">
+                <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->
+            <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>
+            <p>Current vote count = {{foto.voteCount}}</p>
+        </div>
+
+
     </div>
 
 </div>
