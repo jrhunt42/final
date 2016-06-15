@@ -10,11 +10,22 @@
     </nav>
     
     <div class="row">
-        <!-- <h4>Current User = {{fotoUser.currentUser.user}}</h4> -->
+        <h4>My Fotos</h4>
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputFile">Add a Foto</label>
+                <input type="file" accept="image/*" file-model="fotoUser.newImg">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="fotoUser.addFoto(fotoUser.newImg)">Submit</button>
+        </form>
+        <hr>
+        
 
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoUsersList[fotoUser.currentUser.user].fotos">
                 <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->
             <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>
+            <p button type="button" class="btn btn-primary btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>
             <p>Current vote count = {{foto.voteCount}}</p>
         </div>
 

@@ -33,7 +33,7 @@ angular.module("fotoChallenge")
         return;
       }
       
-      //if we reach here, this is a valid vote, find this foto in fotoUsersList and bump its vote count
+      //if we reach here, this is a valid vote, find this foto vote count in fotoUsersList 
       var myCount = ++fotoFactory.fotoUsersList[foto.user].fotos[index].voteCount;
       
       // add this user to set of voters on this foto
@@ -60,16 +60,5 @@ angular.module("fotoChallenge")
       
     };
 
-
-//    done.completedItems = function(){
-//      console.log("checking for completed items");
-//      var completed=[];
-//      for (var i=0; i<done.items.length; i++) {
-//        if(done.items[i].complete) {
-//          completed.push(done.items[i]);
-//        }
-//      }
-//      return completed;
-//    };
     
   }
