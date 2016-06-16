@@ -15,8 +15,8 @@
         <form>
             <div>
                 <h5>Contact Info</h5>
-                <p>Email: {{fotoUser.currentUser.contactInfo[0]}}</p>
-                <p>Phone: {{fotoUser.currentUser.contactInfo[1]}}</p>
+                <p>Email: {{fotoUser.currentUser.email}}</p>
+                <p>Phone: {{fotoUser.currentUser.phone}}</p>
             </div>
         </form>
         <form>
@@ -29,7 +29,7 @@
         <hr>
         
 
-        <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoUsersList[fotoUser.currentUser.user].fotos">
+        <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView">
                 <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->
             <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>
             <p button type="button" class="btn btn-primary btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>

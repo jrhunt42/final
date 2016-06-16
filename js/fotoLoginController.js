@@ -9,16 +9,17 @@ angular.module("fotoChallenge")
     fotoLogin.title = "Login/Logout";
     fotoLogin.currentUser = fotoFactory.currentUser;
     fotoLogin.loggedIn = fotoFactory.loggedIn;
-    fotoLogin.fotoUsersList = fotoFactory.fotoUsersList;
+    fotoLogin.fotoGallery = fotoFactory.fotoGallery;
+    fotoLogin.fotoUsers = fotoFactory.fotoUsers;
     
     fotoLogin.setCurrentUser = function() {
       //console.log("fotoLogin setting currentUser, name =" + fotoLogin.currentUserName);
-      for (var user in fotoFactory.fotoUsersList) {
+      for (var user in fotoFactory.fotoUsers) {
         //console.log("fotoLogin checking:" + fotoFactory.fotoUsersList[user].user + " against " + fotoLogin.currentUserName);
-        if(fotoFactory.fotoUsersList[user].user === fotoLogin.currentUserName) {
-          console.log("fotoLogin setting currentUser to:" + fotoFactory.fotoUsersList[user]);
+        if(fotoFactory.fotoUsers[user].user === fotoLogin.currentUserName) {
+          console.log("fotoLogin setting currentUser to:" + fotoFactory.fotoUsers[user]);
           //fotoLogin.currentUser = fotoFactory.fotoUsersList[user];
-          fotoFactory.currentUser = fotoFactory.fotoUsersList[user];
+          fotoFactory.currentUser = fotoFactory.fotoUsers[user];
           fotoFactory.loggedIn = true;
           fotoLogin.loggedIn = true;
           

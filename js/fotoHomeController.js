@@ -23,15 +23,15 @@ angular.module("fotoChallenge")
       //add new user to fotoUsersList
       fotoHome.showNewUserForm = false;
       // check for duplicate user name
-      if(fotoFactory.fotoUsersList.hasOwnProperty(fotoHome.newUserName)) {
+      if(fotoFactory.fotoUsers.hasOwnProperty(fotoHome.newUserName)) {
         //this user already exists
         console.log("create new user duplicate name");
         alert("Duplicate user name, use a different name");
         return;
       }
-      var contactInfo = [fotoHome.newUserEmail, fotoHome.newUserPhone];
-      var newUser = new fotoFactory.FotoUser(fotoHome.newUserName, fotoHome.newUserPassword,contactInfo,[]);
-      fotoFactory.fotoUsersList[fotoHome.newUserName] = newUser;
+
+      var newUser = new fotoFactory.FotoUser(fotoHome.newUserName, fotoHome.newUserPassword, fotoHome.newUserEmail, fotoHome.newUserPhone);
+      fotoFactory.fotoUsers[fotoHome.newUserName] = newUser;
       fotoFactory.currentUser = newUser;
       fotoFactory.loggedIn = true;
       fotoHome.loggedIn = true;

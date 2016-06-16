@@ -12,7 +12,7 @@
     <br>
     <select ng-hide="fotoLogin.loggedIn" ng-model="fotoLogin.currentUserName" ng-change="fotoLogin.setCurrentUser()">
         <option selected>Select user</option>
-        <option ng-repeat="user in fotoLogin.fotoUsersList" value="{{user.user}}">{{user.user}}</option>
+        <option ng-repeat="user in fotoLogin.fotoUsers" value="{{user.user}}">{{user.user}}</option>
     </select>
     <button ng-show="fotoLogin.loggedIn" type="button" class="btn btn-primary" ng-click="fotoLogin.logout()">Logout</button>
     <div class="row">

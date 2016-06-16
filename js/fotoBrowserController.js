@@ -10,7 +10,18 @@ angular.module("fotoChallenge")
     fotoBrowser.title = "Gallery of Fotos";
     fotoBrowser.currentUser = fotoFactory.currentUser;
     fotoBrowser.loggedIn = fotoFactory.loggedIn;
-    fotoBrowser.fotoUsersList = fotoFactory.fotoUsersList;
+    fotoBrowser.fotoUsers = fotoFactory.fotoUsers;
+    fotoBrowser.fotoGallery = fotoFactory.fotoGallery;
+    
+    //set default sort field and ordering
+    fotoBrowser.sortField = 'user';
+    fotoBrowser.reverseOrdering = false;
+    
+    fotoBrowser.setOrderBy = function(field,ordering) {
+      console.log("fotoBrowser orderBy field, ordering"+ field + ":" +ordering);
+      fotoBrowser.sortField = field;
+      fotoBrowser.reverseOrdering = ordering;
+    }
     
     fotoBrowser.bigFoto = function(foto) {
       console.log("fotoBrowser bigFoto");
@@ -29,19 +40,19 @@ angular.module("fotoChallenge")
       }
       // now need to check if current user has already voted for this foto
       // get index of this foto to access its voters list
-      var index = fotoFactory.fotoUsersList[foto.user].fotos.indexOf(foto);
+      var index = fotoFactory.fotoGallery.indexOf(foto);
       //console.log("found foto at index: " +index);
-      if(fotoBrowser.fotoUsersList[foto.user].fotos[index].voters.indexOf(fotoBrowser.currentUser.user) !== -1) {
+      if(fotoBrowser.fotoGallery[index].voters.indexOf(fotoBrowser.currentUser.user) !== -1) {
         //currentUser has already voted for this foto, can't vote again
         alert("Sorry, you have already voted for this foto");
         return;
       }
       
       //if we reach here, this is a valid vote, find this foto vote count in fotoUsersList 
-      var myCount = ++fotoFactory.fotoUsersList[foto.user].fotos[index].voteCount;
+      var myCount = ++fotoFactory.fotoGallery[index].voteCount;
       
       // add this user to set of voters on this foto
-      fotoFactory.fotoUsersList[foto.user].fotos[index].voters.push(fotoBrowser.currentUser.user);
+      fotoFactory.fotoGallery[index].voters.push(fotoBrowser.currentUser.user);
       
       //if this foto is already in carousel, we don't need to update carousel, even with this 
       // new vote since this vote can only increases voteCount for one of the already top vote getters

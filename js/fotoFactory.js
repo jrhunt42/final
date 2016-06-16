@@ -5,11 +5,11 @@ function fotoFactory() {
       console.log("fotoFactory constructor");
 
 
-      function FotoUser(user, password, contactInfo, fotos) {
+      function FotoUser(user, password, email, phone) {
             this.user = user;
             this.password = password;
-            this.contactInfo = contactInfo;
-            this.fotos = fotos;
+            this.email = email;
+            this.phone = phone;
       }
       
       function FotoObject(user, imgPath, caption, voteCount, voters, comments, inCarousel, timeStamp) {
@@ -50,31 +50,31 @@ function fotoFactory() {
             // iterate thru all users and each of their fotos,
             // keeping the three highest vote getters in the carousel fotos array
             // while iterating, mark each foto inCarousel false until we finish all checking
-            for(var user in fotoUsersList) {
-                  console.log("setCarouselFotos starting  to check user: " +fotoUsersList[user].user);
-                  for(var foto in fotoUsersList[user].fotos) {
+            
+
+                  for(var foto in fotoGallery) {
                         console.log("setCarouselFotos checking next foto");
                         //always clear inCarousel flag until the end
-                        fotoUsersList[user].fotos[foto].inCarousel = false;
+                        fotoGallery[foto].inCarousel = false;
                         // until we have minimum number carousel fotos, just add each one
                         if(this.fotos.length < 3) {
                               console.log("setCarouselFotos inital push");
-                              this.fotos.push(fotoUsersList[user].fotos[foto]);
+                              this.fotos.push(fotoGallery[foto]);
                               console.log(this.fotos);
                         } else {
                               //now we want to replace only if the current fotos voteCount
                               //is greater than one already in the carousel
                               for(var j=0; j< this.fotos.length; j++) {
-                                    if(fotoUsersList[user].fotos[foto].voteCount > this.fotos[j].voteCount) {
+                                    if(fotoGallery[foto].voteCount > this.fotos[j].voteCount) {
                                           //need to replace a foto
                                           console.log("replacing foto at index: " + j);
-                                          this.fotos[j] = fotoUsersList[user].fotos[foto];
+                                          this.fotos[j] = fotoGallery[foto];
                                           break;
                                     }
                               }
                         }
                   }
-            }
+            
             
             // when finished, set inCarousel attribute for the fotos in the carousel
             for(var i=0; i<this.fotos.length; i++) {
@@ -88,8 +88,6 @@ function fotoFactory() {
             // just rebuild carousel from scratch?...since I already have that function anyway
             this.setCarouselFotos();
             
-            // since carousel sorted, lowest vote is at end of carousel array
-            //fotoCarousel.fotos[2] = foto;
       };
       
       //sort carousel fotos by voteCount, highest votes first
@@ -112,16 +110,26 @@ function fotoFactory() {
       var kelseyFoto1 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],false,Date.now());
       var kelseyFoto2 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0473.JPG","dummy caption",0,[],[],false,Date.now());
       // some users
-      var john = new FotoUser("john", "pwjohn", ["abc@gmail.com", "123-456-7890"], [ johnFoto1 ]);
-      var bikenut = new FotoUser("bikenut", "pwbikenut", ["xyz@yahoo.com", "987-654-3210"], [ bikeFoto1, bikeFoto2 ]);
-      var kelsey = new FotoUser("kelsey", "pwkelsey", ["wtf@hotmail.com", "303-867-5309"], [kelseyFoto1, kelseyFoto2]);
+      var john = new FotoUser("john", "pwjohn", "abc@gmail.com", "123-456-7890");
+      var bikenut = new FotoUser("bikenut", "pwbikenut", "xyz@yahoo.com", "987-654-3210");
+      var kelsey = new FotoUser("kelsey", "pwkelsey", "wtf@hotmail.com", "303-867-5309");
       
       //initial user list
-      var fotoUsersList = {
+      var fotoUsers = {
             "john":     john,
             "bikenut":  bikenut,
             "kelsey":   kelsey
       };
+      
+      var fotoGallery = [
+            johnFoto1,
+            bikeFoto1,
+            bikeFoto2,
+            kelseyFoto1,
+            kelseyFoto2
+            
+      ];
+            
       
       // initial user
       var currentUser = undefined;
@@ -130,10 +138,6 @@ function fotoFactory() {
       //initial carousel
       var fotoCarousel = new CarouselFotos ( []);
       fotoCarousel.setCarouselFotos();
-      
-      //console.log("carousel before sort: " + fotoCarousel.fotos);
-      //fotoCarousel.fotos.sort(fotoSortByVote);
-      //console.log("carousel after sort: " + fotoCarousel.fotos);
       
       return {
             //constructors
@@ -144,7 +148,8 @@ function fotoFactory() {
             currentUser:      currentUser,
             loggedIn:         loggedIn,
             fotoCarousel :    fotoCarousel,
-            fotoUsersList :   fotoUsersList 
+            fotoUsers :   fotoUsers,
+            fotoGallery: fotoGallery
             
       };
 }
