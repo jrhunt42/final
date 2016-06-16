@@ -13,7 +13,7 @@ angular.module("fotoChallenge")
     fotoHome.showNewUserForm = false;
     
     fotoHome.showForm = function() {
-      console.log("show new user form");
+      //console.log("show new user form");
       fotoHome.showNewUserForm = true;
     };
     
@@ -25,7 +25,7 @@ angular.module("fotoChallenge")
       // check for duplicate user name
       if(fotoFactory.fotoUsers.hasOwnProperty(fotoHome.newUserName)) {
         //this user already exists
-        console.log("create new user duplicate name");
+        //console.log("create new user duplicate name");
         alert("Duplicate user name, use a different name");
         return;
       }
@@ -40,13 +40,6 @@ angular.module("fotoChallenge")
     
     fotoHome.cancelNewUser = function() {
       fotoHome.showNewUserForm = false;
-    }
-
-//    todo.addItem = function(){
-//      console.log("Adding Item!!!!");
-//      todo.items.push(todo.newItem);
-//      todo.newItem = {};
-//    };
+    };
     
-
   }

@@ -18,7 +18,7 @@ angular.module("fotoChallenge")
     fotoBrowser.reverseOrdering = false;
     
     fotoBrowser.setOrderBy = function(field,ordering) {
-      console.log("fotoBrowser orderBy field, ordering"+ field + ":" +ordering);
+      //console.log("fotoBrowser orderBy field, ordering"+ field + ":" +ordering);
       fotoBrowser.sortField = field;
       fotoBrowser.reverseOrdering = ordering;
     }

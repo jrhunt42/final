@@ -1,1 +1,59 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+body {
+    background-image: url(http://bgfons.com/upload/iron_texture65.jpg);
+    ;
+}
+
+.mySlide {
+    width:320;
+    height:240;
+    background: center center;
+    background-size:contain;
+}
+
+.myColorTheme {
+    color:#EEEEEE;
+}
+
+.jumbotron {
+    font-size:64px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.btn-default {
+    background:#EEEEEE;
+}
+
+.form-group {
+    background:#EEEEEE;
+    border-radius:6px;
+    color:black;
+    margin-left:5px;
+}
+
+.fotoInfo {
+    background:#EEEEEE;
+    border-radius:6px;
+    color:black;
+    max-width:75%;
+}
+/* nav styling */
+nav.tabs {
+    background: #EEEEEE;
+    max-width: 45%;
+    margin: 0 auto;
+    border-radius:6px;
+}
+nav.tabs a {
+    display: inline-block;
+    /* background: rgba(238,238,238,0.7); */
+    color: black;
+    padding: 10px 20px;
+    margin-right: 1px;
+    border-radius:6px;
+}
+
+nav.tabs active { 
+    background: #A0A0A0;
+}

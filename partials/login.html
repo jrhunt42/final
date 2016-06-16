@@ -4,17 +4,20 @@
 
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ng-show="fotoLogin.loggedIn" ui-sref-active="active" ui-sref="userProfile">User Profile</a>
-        <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
+        <a ng-show="fotoLogin.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
+        <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
         <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
     </nav>
     
     <br>
+    <label>Set User</label>
     <select ng-hide="fotoLogin.loggedIn" ng-model="fotoLogin.currentUserName" ng-change="fotoLogin.setCurrentUser()">
         <option selected>Select user</option>
         <option ng-repeat="user in fotoLogin.fotoUsers" value="{{user.user}}">{{user.user}}</option>
     </select>
-    <button ng-show="fotoLogin.loggedIn" type="button" class="btn btn-primary" ng-click="fotoLogin.logout()">Logout</button>
+    <br>
+    <hr>
+    <button ng-show="fotoLogin.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.logout()">Logout</button>
     <div class="row">
 
     </div>

@@ -36,7 +36,7 @@ function fotoFactory() {
                         }
                   }
             }
-            console.log("getMinVoteCount returns: " + minVoteCount);
+            //console.log("getMinVoteCount returns: " + minVoteCount);
             return minVoteCount;
       }
       CarouselFotos.prototype.setCarouselFotos = function() {
@@ -45,7 +45,7 @@ function fotoFactory() {
             while(this.fotos.length > 0) {
                   this.fotos.pop();
             }
-            console.log("setCarouselFotos finished emptying carousel");
+            //console.log("setCarouselFotos finished emptying carousel");
             
             // iterate thru all users and each of their fotos,
             // keeping the three highest vote getters in the carousel fotos array
@@ -53,12 +53,12 @@ function fotoFactory() {
             
 
                   for(var foto in fotoGallery) {
-                        console.log("setCarouselFotos checking next foto");
+                        //console.log("setCarouselFotos checking next foto");
                         //always clear inCarousel flag until the end
                         fotoGallery[foto].inCarousel = false;
                         // until we have minimum number carousel fotos, just add each one
                         if(this.fotos.length < 3) {
-                              console.log("setCarouselFotos inital push");
+                              //console.log("setCarouselFotos inital push");
                               this.fotos.push(fotoGallery[foto]);
                               console.log(this.fotos);
                         } else {
@@ -67,7 +67,7 @@ function fotoFactory() {
                               for(var j=0; j< this.fotos.length; j++) {
                                     if(fotoGallery[foto].voteCount > this.fotos[j].voteCount) {
                                           //need to replace a foto
-                                          console.log("replacing foto at index: " + j);
+                                          //console.log("replacing foto at index: " + j);
                                           this.fotos[j] = fotoGallery[foto];
                                           break;
                                     }

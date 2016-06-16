@@ -4,15 +4,15 @@
 
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ng-show="fotoUser.loggedIn" ui-sref-active="active" ui-sref="userProfile">User Profile</a>
-        <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
+        <a ng-show="fotoUser.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
+        <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
         <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
     </nav>
     
     <div class="row">
-        <h3>My Fotos</h3>
         <br>
-        <form>
+        <form class="form-group">
+            <h3 class="text-center">My Fotos</h3>
             <div>
                 <h5>Contact Info</h5>
                 <p>Email: {{fotoUser.currentUser.email}}</p>
@@ -32,8 +32,8 @@
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView">
                 <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->
             <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>
-            <p button type="button" class="btn btn-primary btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>
-            <p>Current vote count = {{foto.voteCount}}</p>
+            <p class="fotoInfo text-center">Current vote count = {{foto.voteCount}}</p>
+            <p button type="button" class="btn btn-default btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>
         </div>
 
 

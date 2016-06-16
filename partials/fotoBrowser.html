@@ -4,28 +4,34 @@
 
     <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ng-show="fotoBrowser.loggedIn" ui-sref-active="active" ui-sref="userProfile">User Profile</a>
-        <a ui-sref-active="active" ui-sref="fotoBrowser">Browse Fotos</a>
+        <a ng-show="fotoBrowser.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
+        <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
         <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
     </nav>
     <hr>
     <div class="row">
-        <h5>Sorting Options</h5>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-click="fotoBrowser.setOrderBy('user',false)"> UserName (default)
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-click="fotoBrowser.setOrderBy('voteCount',true)"> VoteCount (highest first)
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-click="fotoBrowser.setOrderBy('timestamp',true)"> NewestFotosFirst
-        </label>
+        <div class="col-md-12 form-group">
+            <h5 class="text-center">Sorting Options</h5>
+            <div class="text-center">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-click="fotoBrowser.setOrderBy('user',false)"> UserName (default)
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-click="fotoBrowser.setOrderBy('voteCount',true)"> VoteCount (highest first)
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-click="fotoBrowser.setOrderBy('timestamp',true)"> NewestFotosFirst
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
         <hr>
         <div class="col-xs-6" ng-repeat="foto in fotoBrowser.fotoGallery | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
             <a href="{{foto.imgPath}}" target="_top">
                 <img class="img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}} height=200px weight=200px>
             </a>
-            <p ng-show="fotoBrowser.loggedIn" button type="button" class="btn btn-primary btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
-            <p>User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
+            <p class="fotoInfo text-center">User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
+            <p ng-show="fotoBrowser.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
         </div>
 </div>
