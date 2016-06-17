@@ -11,23 +11,24 @@
     
     <div class="row">
         <br>
-        <form class="form-group">
-            <h3 class="text-center">My Fotos</h3>
+        <form class="form-group col-sm-4 col-sm-offset-1">
+            <h4 class="text-center">My Fotos</h4>
             <div>
                 <h5>Contact Info</h5>
                 <p>Email: {{fotoUser.currentUser.email}}</p>
                 <p>Phone: {{fotoUser.currentUser.phone}}</p>
             </div>
         </form>
-        <form>
+        <form class="col-sm-4 col-sm-offset-2">
             <div class="form-group">
                 <label for="exampleInputFile">Add a Foto</label>
                 <input type="file" accept="image/*" file-model="fotoUser.newImg">
             </div>
             <button type="submit" class="btn btn-default" ng-click="fotoUser.addFoto(fotoUser.newImg)">Submit</button>
         </form>
-        <hr>
-        
+    </div>
+    <hr>
+    <div>
 <!--
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView">
             <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>

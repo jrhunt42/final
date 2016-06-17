@@ -6,11 +6,15 @@ angular.module("fotoChallenge")
     var fotoLogin = this;
     console.log("fotoLoginController");
 
-    fotoLogin.title = "Login/Logout";
     fotoLogin.currentUser = fotoFactory.currentUser;
     fotoLogin.loggedIn = fotoFactory.loggedIn;
     fotoLogin.fotoGallery = fotoFactory.fotoGallery;
     fotoLogin.fotoUsers = fotoFactory.fotoUsers;
+    if(fotoLogin.loggedIn) {
+      fotoLogin.title = "Logout";
+    } else {
+      fotoLogin.title = "Login";
+    }
     
     fotoLogin.setCurrentUser = function() {
       //console.log("fotoLogin setting currentUser, name =" + fotoLogin.currentUserName);
