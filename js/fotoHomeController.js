@@ -11,11 +11,17 @@ angular.module("fotoChallenge")
     fotoHome.carouselInterval = 3000;
     fotoHome.loggedIn = fotoFactory.loggedIn;
     fotoHome.showNewUserForm = false;
+    fotoHome.showContestInfoForm = false;
     
     fotoHome.showForm = function() {
       //console.log("show new user form");
       fotoHome.showNewUserForm = true;
     };
+    
+    fotoHome.showInfoForm = function() {
+      //console.log("show contest info form");
+      fotoHome.showContestInfoForm = true;
+    };    
     
     fotoHome.createNewUser = function(){
       //hide input form
@@ -42,4 +48,7 @@ angular.module("fotoChallenge")
       fotoHome.showNewUserForm = false;
     };
     
+    fotoHome.closeInfoForm = function() {
+      fotoHome.showContestInfoForm = false;
+    };    
   }

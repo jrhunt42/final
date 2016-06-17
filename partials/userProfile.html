@@ -28,14 +28,25 @@
         </form>
         <hr>
         
-
+<!--
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView">
-                <!-- <img ng-src={{foto.imgPath}} height=300 weight=300> -->
             <img class="img-responsive" ng-src={{foto.imgPath}} height=200 weight=200>
             <p class="fotoInfo text-center">Current vote count = {{foto.voteCount}}</p>
             <p button type="button" class="btn btn-default btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>
         </div>
-
+-->
+        <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView ">
+            <div class="panel-image hide-panel-body">
+                <a href="{{foto.imgPath}}" target="fotoReview">
+                    <img class="panel-image-preview img-responsive" ng-src={{foto.imgPath}}>
+                </a>
+            </div>
+            <div class="panel-body"></div>
+            <div class="panel-footer text-center">
+                <p class="fotoInfo text-center">Current vote count = {{foto.voteCount}}</p>
+                <p button type="button" class="btn btn-default btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>
+            </div>
+        </div>
 
     </div>
 

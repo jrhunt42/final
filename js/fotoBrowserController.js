@@ -25,6 +25,7 @@ angular.module("fotoChallenge")
     
     fotoBrowser.bigFoto = function(foto) {
       console.log("fotoBrowser bigFoto");
+      console.log(foto);
     };
     
     fotoBrowser.newVote = function(foto) {
@@ -70,10 +71,9 @@ angular.module("fotoChallenge")
         // call update carousel to reset the fotos in carousel
         fotoFactory.fotoCarousel.fotoCarouselUpdate();
       } else {
-        console.log("new vote does not change carousel")
+        console.log("new vote does not change carousel");
       }
       
     };
-
     
   }

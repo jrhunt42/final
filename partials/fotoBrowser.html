@@ -10,7 +10,7 @@
     </nav>
     <hr>
     <div class="row">
-        <div class="col-md-12 form-group">
+        <div class="col-xs-12 form-group">
             <h5 class="text-center">Sorting Options</h5>
             <div class="text-center">
                 <label class="radio-inline">
@@ -25,13 +25,32 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="row">
         <hr>
-        <div class="col-xs-6" ng-repeat="foto in fotoBrowser.fotoGallery | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
+    
+        <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoBrowser.fotoGallery | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
+            <div class="panel-image hide-panel-body">
+                <a href="{{foto.imgPath}}" target="fotoReview">
+                    <img class="panel-image-preview img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}}>
+                </a>
+            </div>
+            <div class="panel-body"></div>
+            <div class="panel-footer text-center">
+                <p class="fotoInfo text-center">User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
+                <p ng-show="fotoBrowser.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
+            </div>
+        </div>
+        
+                    
+<!--
             <a href="{{foto.imgPath}}" target="_top">
                 <img class="img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}} height=200px weight=200px>
             </a>
-            <p class="fotoInfo text-center">User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
-            <p ng-show="fotoBrowser.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
-        </div>
+-->
+
+            <!-- <div class="mySlide img-responsive" ng-style="{'background-image':'url('+foto.imgPath+')'}"></div> -->
+
+    </div>
+    
+    
 </div>

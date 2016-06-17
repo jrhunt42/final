@@ -5,20 +5,21 @@ body {
     ;
 }
 
-.mySlide {
-    width:320;
-    height:240;
-    background: center center;
-    background-size:contain;
-}
-
 .myColorTheme {
     color:#EEEEEE;
 }
 
+.contestInfo {
+    float: right;
+}
+
+#contestForm {
+    padding: 0;
+}
+
 .jumbotron {
-    font-size:64px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size:84px;
+    font-family: fantasy, cursive, serif;
 }
 
 .btn-default {
@@ -29,14 +30,14 @@ body {
     background:#EEEEEE;
     border-radius:6px;
     color:black;
-    margin-left:5px;
+    padding:3px;
 }
 
 .fotoInfo {
     background:#EEEEEE;
     border-radius:6px;
     color:black;
-    max-width:75%;
+    /* max-width:75%; */
 }
 /* nav styling */
 nav.tabs {
@@ -56,4 +57,50 @@ nav.tabs a {
 
 nav.tabs active { 
     background: #A0A0A0;
+}
+
+/* from panels snippet */
+/*@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");*/
+
+.panel {
+    /* display: inline-block; */
+    float:left;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    /* border: 10px solid transparent; */
+    /*margin:3px;*/
+}
+
+.panel-footer {
+    background:#EEEEEE;
+}
+
+.panel-image img {
+    height: 360px;
+    /* object-fit: contain; */
+}
+
+.panel-image img.panel-image-preview {
+    width: 100%;
+	border-radius: 4px 4px 0px 0px;
+}
+
+.panel-heading ~ .panel-image img.panel-image-preview {
+	border-radius: 0px;
+}
+
+.panel-image ~ .panel-body, .panel-image.hide-panel-body ~ .panel-body {
+	overflow: hidden;
+}
+.panel-image ~ .panel-footer a {
+	padding: 0px 10px;
+	font-size: 1.3em;
+	/* color: rgb(100, 100, 100); */
+	/* background:#EEEEEE; */
+}
+
+.panel-image.hide-panel-body ~ .panel-body {
+	height: 0px;
+	padding: 0px;
 }
