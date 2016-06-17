@@ -79,7 +79,7 @@ nav.tabs active {
 
 .panel-image img {
     height: 360px;
-    /* object-fit: contain; */
+    object-fit: cover;
 }
 
 .panel-image img.panel-image-preview {
