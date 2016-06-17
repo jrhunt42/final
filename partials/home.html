@@ -1,18 +1,17 @@
 <div class="container">
 
     <h1 class="jumbotron myJumbotron text-center">{{fotoHome.title}}</h1>
-    <div>
-      <button type="button" class="btn btn-default btn-lg" ng-click="fotoHome.showForm()">Join Contest</button>
-      <button type="button" class="btn btn-default btn-lg contestInfo" ng-click="fotoHome.showInfoForm()">Contest Info</button>
-    </div>
-
-    <nav class='tabs'>
+      <nav class='tabs'>
         <a ui-sref-active="active" ui-sref="home">Home</a>
         <a ng-show="fotoHome.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
         <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
         <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
       <br>
     </nav>
+    <div>
+      <button type="button" class="btn btn-default btn-lg" ng-click="fotoHome.showForm()">Join Contest</button>
+      <button type="button" class="btn btn-default btn-lg contestInfo" ng-click="fotoHome.showInfoForm()">Contest Info</button>
+    </div>
     
     <div class="newUserForm myColorTheme" ng-show="fotoHome.showNewUserForm">
       <hr>
@@ -40,9 +39,10 @@
     
     <div class="newUserForm myColorTheme" ng-show="fotoHome.showContestInfoForm">
       <hr>
-      <form>
-        <h4 class="text-center form-group">Contest Rules</h4>
-        <ol class="form-group" id="contestForm">
+      <form class="form-group">
+        <h4 class="text-center">Contest Rules and Info</h4>
+        <ol id="contestForm">
+          <li>Peer judged foto contest.</li>
           <li>Users must join contest to be able to participate beyond viewing fotos.</li>
           <li>The top three vote count fotos are highlighted on the home page.</li>
           <li>One vote per foto per user.</li>
