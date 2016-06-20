@@ -1,7 +1,7 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 body {
-    background-image: url(http://bgfons.com/upload/iron_texture65.jpg);
+    background-image: url(../images/iron_texture65.jpg);
     ;
 }
 

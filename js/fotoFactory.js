@@ -113,17 +113,17 @@ function fotoFactory() {
       
       //create some static data
       // some foto objects
-      var johnFoto1 = new FotoObject("john", "https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[],false, Date.now());
-      var bikeFoto1 = new FotoObject("bikenut","https://cohort-work-jrhunt42.c9users.io/midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], false, Date.now());
-      var bikeFoto2 = new FotoObject("bikenut","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0603.JPG","dummy caption",0,[], [], false, Date.now());
-      var kelseyFoto1 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],false,Date.now());
-      var kelseyFoto2 = new FotoObject("kelsey","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],false,Date.now());
-      var mtndudeFoto1 = new FotoObject("mtndude","https://cohort-work-jrhunt42.c9users.io/midterm/images/DSC_0011.jpg","dummy caption",1,["craig"],[],false,Date.now());
-      var mtndudeFoto2 = new FotoObject("mtndude","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMG_2573.jpg","dummy caption",0,[],[],false,Date.now());
-      var craigFoto1 = new FotoObject("craig","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP1235.JPG","dummy caption",0,[],[],false,Date.now());
-      var craigFoto2 = new FotoObject("craig","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP1211.JPG","dummy caption",0,[],[],false,Date.now());
-      var angieFoto1 = new FotoObject("angie","https://cohort-work-jrhunt42.c9users.io/midterm/images/IMGP0741.JPG","dummy caption",0,[],[],false,Date.now());
-      var angieFoto2 = new FotoObject("angie","https://cohort-work-jrhunt42.c9users.io/midterm/images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],false,Date.now());
+      var johnFoto1 = new FotoObject("john", "../midterm/images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[],false, Date.now());
+      var bikeFoto1 = new FotoObject("bikenut","../midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], false, Date.now());
+      var bikeFoto2 = new FotoObject("bikenut","../midterm/images/IMGP0603.JPG","dummy caption",0,[], [], false, Date.now());
+      var kelseyFoto1 = new FotoObject("kelsey","../midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],false,Date.now());
+      var kelseyFoto2 = new FotoObject("kelsey","../midterm/images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],false,Date.now());
+      var mtndudeFoto1 = new FotoObject("mtndude","../midterm/images/DSC_0011.jpg","dummy caption",1,["craig"],[],false,Date.now());
+      var mtndudeFoto2 = new FotoObject("mtndude","../midterm/images/IMG_2573.jpg","dummy caption",0,[],[],false,Date.now());
+      var craigFoto1 = new FotoObject("craig","../midterm/images/IMGP1235.JPG","dummy caption",0,[],[],false,Date.now());
+      var craigFoto2 = new FotoObject("craig","../midterm/images/IMGP1211.JPG","dummy caption",0,[],[],false,Date.now());
+      var angieFoto1 = new FotoObject("angie","../midterm/images/IMGP0741.JPG","dummy caption",0,[],[],false,Date.now());
+      var angieFoto2 = new FotoObject("angie","../midterm/images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],false,Date.now());
       
       
       // some users
