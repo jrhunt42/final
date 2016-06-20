@@ -45,7 +45,7 @@ function fotoFactory() {
             while(this.fotos.length > 0) {
                   this.fotos.pop();
             }
-            console.debug("setCarouselFotos finished emptying carousel");
+            //console.debug("setCarouselFotos finished emptying carousel");
             
             // iterate thru all users and each of their fotos,
             // keeping the three highest vote getters in the carousel fotos array
@@ -59,9 +59,9 @@ function fotoFactory() {
                         // until we have minimum number carousel fotos, just add each one
                         if(this.fotos.length < 3) {
                               //console.debug("setCarouselFotos inital push");
-                              console.debug("pushing:" + fotoGallery[foto].imgPath);
+                              //console.debug("pushing:" + fotoGallery[foto].imgPath);
                               this.fotos.push(fotoGallery[foto]);
-                              console.log(this.fotos);
+                              //console.log(this.fotos);
                         } else {
                               //now we want to replace only if the current fotos voteCount
                               //is greater than one already in the carousel
@@ -73,9 +73,9 @@ function fotoFactory() {
                               for(var j=0; j< this.fotos.length; j++) {
                                     if(fotoGallery[foto].voteCount > this.fotos[j].voteCount) {
                                           //need to replace a foto
-                                          console.debug("replacing vote:::with" + this.fotos[j].voteCount +":::" +fotoGallery[foto].voteCount);
-                                          console.debug(this.fotos[j]);
-                                          console.debug(fotoGallery[foto]);
+                                          //console.debug("replacing vote:::with" + this.fotos[j].voteCount +":::" +fotoGallery[foto].voteCount);
+                                          //console.debug(this.fotos[j]);
+                                          //console.debug(fotoGallery[foto]);
                                           this.fotos[j] = fotoGallery[foto];
                                           this.fotos.sort(fotoSortByVote);
                                           break;
@@ -166,7 +166,7 @@ function fotoFactory() {
       
       //initial carousel
       var fotoCarousel = new CarouselFotos ( []);
-      fotoCarousel.setCarouselFotos();
+//      fotoCarousel.setCarouselFotos();
       
       return {
             //constructors

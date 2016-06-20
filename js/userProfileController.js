@@ -38,7 +38,7 @@ angular.module("fotoChallenge")
       var newImgPath = "./images/"+imgName.name;
       //console.log(newImgPath);
       //console.log(fotoUser.currentUser);
-      var newFoto = new fotoFactory.FotoObject(fotoUser.currentUser.user, newImgPath, "dummy caption", 0, [], [], false, Date.now());
+      var newFoto = new fotoFactory.FotoObject(fotoUser.currentUser.user, newImgPath, "dummy caption", 0, [], [], Date.now());
       console.log(newFoto);
       fotoFactory.fotoGallery.push(newFoto);
       
