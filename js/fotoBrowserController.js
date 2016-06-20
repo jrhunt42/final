@@ -57,22 +57,22 @@ angular.module("fotoChallenge")
       
       //if this foto is already in carousel, we don't need to update carousel, even with this 
       // new vote since this vote can only increases voteCount for one of the already top vote getters
-      if(foto.inCarousel) {
-        console.log("newVote for foto already inCarousel");
-        return;
-      }
+//      if(foto.inCarousel) {
+//        console.log("newVote for foto already inCarousel");
+//        return;
+//      }
       //check the new vote count for this foto against the minimum count 
       //foto in carousel to see if carousel might need updating
       //ties do not cause a carousel change
       //console.log("myCount:" + myCount);
       
-      if(myCount > fotoFactory.fotoCarousel.getMinVoteCount()) {
-        console.log("new vote changes carousel");
-        // call update carousel to reset the fotos in carousel
-        fotoFactory.fotoCarousel.fotoCarouselUpdate();
-      } else {
-        console.log("new vote does not change carousel");
-      }
+//      if(myCount > fotoFactory.fotoCarousel.getMinVoteCount()) {
+//        console.log("new vote changes carousel");
+//        // call update carousel to reset the fotos in carousel
+//        fotoFactory.fotoCarousel.fotoCarouselUpdate();
+//      } else {
+//        console.log("new vote does not change carousel");
+//      }
       
     };
     

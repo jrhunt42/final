@@ -12,6 +12,8 @@ angular.module("fotoChallenge")
     fotoHome.loggedIn = fotoFactory.loggedIn;
     fotoHome.showNewUserForm = false;
     fotoHome.showContestInfoForm = false;
+    // build carousel based on current vote count and current images
+    fotoFactory.fotoCarousel.fotoCarouselUpdate();
     
     fotoHome.showForm = function() {
       //console.log("show new user form");

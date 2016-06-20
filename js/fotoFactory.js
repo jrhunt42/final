@@ -12,14 +12,14 @@ function fotoFactory() {
             this.phone = phone;
       }
       
-      function FotoObject(user, imgPath, caption, voteCount, voters, comments, inCarousel, timeStamp) {
+      function FotoObject(user, imgPath, caption, voteCount, voters, comments, timeStamp) {
             this.user = user;
             this.imgPath = imgPath;
             this.caption = caption;
             this.voteCount = voteCount;
             this.voters = voters;
             this.comments = comments;
-            this.inCarousel = inCarousel;
+//            this.inCarousel = inCarousel;
             this.timeStamp = timeStamp;
       }
       
@@ -55,7 +55,7 @@ function fotoFactory() {
                   for(var foto in fotoGallery) {
                         //console.debug("setCarouselFotos checking next foto");
                         //always clear inCarousel flag until the end
-                        fotoGallery[foto].inCarousel = false;
+//                        fotoGallery[foto].inCarousel = false;
                         // until we have minimum number carousel fotos, just add each one
                         if(this.fotos.length < 3) {
                               //console.debug("setCarouselFotos inital push");
@@ -86,9 +86,9 @@ function fotoFactory() {
             
             
             // when finished, set inCarousel attribute for the fotos in the carousel
-            for(var i=0; i<this.fotos.length; i++) {
-                  this.fotos[i].inCarousel = true;
-            }
+//            for(var i=0; i<this.fotos.length; i++) {
+//                  this.fotos[i].inCarousel = true;
+//            }
       }
       
       CarouselFotos.prototype.fotoCarouselUpdate = function() {
@@ -113,17 +113,17 @@ function fotoFactory() {
       
       //create some static data
       // some foto objects
-      var johnFoto1 = new FotoObject("john", "../midterm/images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[],false, Date.now());
-      var bikeFoto1 = new FotoObject("bikenut","../midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], false, Date.now());
-      var bikeFoto2 = new FotoObject("bikenut","../midterm/images/IMGP0603.JPG","dummy caption",0,[], [], false, Date.now());
-      var kelseyFoto1 = new FotoObject("kelsey","../midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],false,Date.now());
-      var kelseyFoto2 = new FotoObject("kelsey","../midterm/images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],false,Date.now());
-      var mtndudeFoto1 = new FotoObject("mtndude","../midterm/images/DSC_0011.jpg","dummy caption",1,["craig"],[],false,Date.now());
-      var mtndudeFoto2 = new FotoObject("mtndude","../midterm/images/IMG_2573.jpg","dummy caption",0,[],[],false,Date.now());
-      var craigFoto1 = new FotoObject("craig","../midterm/images/IMGP1235.JPG","dummy caption",0,[],[],false,Date.now());
-      var craigFoto2 = new FotoObject("craig","../midterm/images/IMGP1211.JPG","dummy caption",0,[],[],false,Date.now());
-      var angieFoto1 = new FotoObject("angie","../midterm/images/IMGP0741.JPG","dummy caption",0,[],[],false,Date.now());
-      var angieFoto2 = new FotoObject("angie","../midterm/images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],false,Date.now());
+      var johnFoto1 = new FotoObject("john", "../midterm/images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[], Date.now());
+      var bikeFoto1 = new FotoObject("bikenut","../midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], Date.now());
+      var bikeFoto2 = new FotoObject("bikenut","../midterm/images/IMGP0603.JPG","dummy caption",0,[], [], Date.now());
+      var kelseyFoto1 = new FotoObject("kelsey","../midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],Date.now());
+      var kelseyFoto2 = new FotoObject("kelsey","../midterm/images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],Date.now());
+      var mtndudeFoto1 = new FotoObject("mtndude","../midterm/images/DSC_0011.jpg","dummy caption",1,["craig"],[],Date.now());
+      var mtndudeFoto2 = new FotoObject("mtndude","../midterm/images/IMG_2573.jpg","dummy caption",0,[],[],Date.now());
+      var craigFoto1 = new FotoObject("craig","../midterm/images/IMGP1235.JPG","dummy caption",0,[],[],Date.now());
+      var craigFoto2 = new FotoObject("craig","../midterm/images/IMGP1211.JPG","dummy caption",0,[],[],Date.now());
+      var angieFoto1 = new FotoObject("angie","../midterm/images/IMGP0741.JPG","dummy caption",0,[],[],Date.now());
+      var angieFoto2 = new FotoObject("angie","../midterm/images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],Date.now());
       
       
       // some users

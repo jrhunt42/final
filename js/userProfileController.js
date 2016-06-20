@@ -25,17 +25,17 @@ angular.module("fotoChallenge")
       fotoFactory.fotoGallery.splice(index,1);
       
       // if this foto was in carousel, update carousel
-      if(foto.inCarousel) {
+//      if(foto.inCarousel) {
         // need to update carousel
-        fotoFactory.fotoCarousel.fotoCarouselUpdate();
-      }
+//        fotoFactory.fotoCarousel.fotoCarouselUpdate();
+//      }
     };
     
     fotoUser.addFoto = function(imgName) {
       //take the img name and create a new foto object and add to this users foto array
       //note that we do not have to update carousel since this new foto can not have any votes yet
       //console.log("fotoUser add foto with img:" +imgName.name);
-      var newImgPath = "https://cohort-work-jrhunt42.c9users.io/midterm/images/"+imgName.name;
+      var newImgPath = "./images/"+imgName.name;
       //console.log(newImgPath);
       //console.log(fotoUser.currentUser);
       var newFoto = new fotoFactory.FotoObject(fotoUser.currentUser.user, newImgPath, "dummy caption", 0, [], [], false, Date.now());
