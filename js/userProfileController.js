@@ -6,8 +6,8 @@ angular.module("fotoChallenge")
     var fotoUser = this;
     console.log("fotoUserController");
 
-    fotoUser.title = "User Profile";
     fotoUser.currentUser = fotoFactory.currentUser;
+    fotoFactory.currentTitle = fotoUser.currentUser.user + " Profile";
     fotoUser.loggedIn = fotoFactory.loggedIn;
     fotoUser.fotoUsers = fotoFactory.fotoUsers;
     fotoUser.fotoGallery = fotoFactory.fotoGallery;
@@ -23,12 +23,6 @@ angular.module("fotoChallenge")
       var index = fotoFactory.fotoGallery.indexOf(foto);
       //console.log("delete foto found at index: " + index);
       fotoFactory.fotoGallery.splice(index,1);
-      
-      // if this foto was in carousel, update carousel
-//      if(foto.inCarousel) {
-        // need to update carousel
-//        fotoFactory.fotoCarousel.fotoCarouselUpdate();
-//      }
     };
     
     fotoUser.addFoto = function(imgName) {

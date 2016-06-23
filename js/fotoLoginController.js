@@ -11,9 +11,9 @@ angular.module("fotoChallenge")
     fotoLogin.fotoGallery = fotoFactory.fotoGallery;
     fotoLogin.fotoUsers = fotoFactory.fotoUsers;
     if(fotoLogin.loggedIn) {
-      fotoLogin.title = "Logout";
+      fotoFactory.currentTitle = "Logout";
     } else {
-      fotoLogin.title = "Login";
+      fotoFactory.currentTitle = "Login";
     }
     
     fotoLogin.setCurrentUser = function() {
@@ -26,6 +26,7 @@ angular.module("fotoChallenge")
           fotoFactory.currentUser = fotoFactory.fotoUsers[user];
           fotoFactory.loggedIn = true;
           fotoLogin.loggedIn = true;
+          fotoFactory.currentTitle = "Logout";
           
           return;
         }
@@ -34,6 +35,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentUser = undefined;
       fotoFactory.loggedIn = false;
       fotoLogin.loggedIn = false;
+      fotoFactory.currentTitle = "Login";
     }
     
     fotoLogin.logout = function() {
@@ -41,6 +43,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentUser = undefined;
       fotoFactory.loggedIn = false;
       fotoLogin.loggedIn = false;
+      fotoFactory.currentTitle = "Login";
     }
     
   }

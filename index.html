@@ -14,6 +14,7 @@
     <script type="text/javascript" src="js/fotoBrowserController.js"></script>
     <script type="text/javascript" src="js/fotoHomeController.js"></script>
     <script type="text/javascript" src="js/fotoLoginController.js"></script>
+    <script type="text/javascript" src="js/fotoCommonController.js"></script>
             <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
@@ -21,7 +22,17 @@
 
 </head>
 <body >
-    <!-- <h2> default page </h2>-->
+    <div class="container" ng-controller="fotoCommonController as fotoCommon">
+        <h1 class="jumbotron myJumbotron text-center">{{fotoCommon.factoryData.currentTitle}}</h1>
+        <nav class='tabs'>
+            <a ui-sref-active="active" ui-sref="home">Home</a>
+            <a ng-show="fotoCommon.factoryData.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
+            <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
+            <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
+            <br>
+        </nav>
+    </div>
+    
     <ui-view></ui-view>
 
 

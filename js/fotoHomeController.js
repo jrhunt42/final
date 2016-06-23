@@ -6,14 +6,14 @@ angular.module("fotoChallenge")
     var fotoHome = this;
     console.log("fotoHomeController");
 
-    fotoHome.title = "Foto Wars";
+    fotoFactory.currentTitle = "Foto Wars";
     fotoHome.carousel = fotoFactory.fotoCarousel;
     fotoHome.carouselInterval = 3000;
     fotoHome.loggedIn = fotoFactory.loggedIn;
     fotoHome.showNewUserForm = false;
     fotoHome.showContestInfoForm = false;
     // build carousel based on current vote count and current images
-    fotoFactory.fotoCarousel.fotoCarouselUpdate();
+    fotoFactory.fotoCarousel.setCarouselFotos();
     
     fotoHome.showForm = function() {
       //console.log("show new user form");
