@@ -6,10 +6,11 @@ angular.module("fotoChallenge")
     var fotoHome = this;
     console.log("fotoHomeController");
 
+    fotoHome.fotoFactory = fotoFactory;
     fotoFactory.currentTitle = "Foto Wars";
-    fotoHome.carousel = fotoFactory.fotoCarousel;
+    //fotoHome.carousel = fotoFactory.fotoCarousel;
     fotoHome.carouselInterval = 3000;
-    fotoHome.loggedIn = fotoFactory.loggedIn;
+    //fotoHome.loggedIn = fotoFactory.loggedIn;
     fotoHome.showNewUserForm = false;
     fotoHome.showContestInfoForm = false;
     // build carousel based on current vote count and current images
@@ -42,7 +43,7 @@ angular.module("fotoChallenge")
       fotoFactory.fotoUsers[fotoHome.newUserName] = newUser;
       fotoFactory.currentUser = newUser;
       fotoFactory.loggedIn = true;
-      fotoHome.loggedIn = true;
+      //fotoHome.loggedIn = true;
       
     };
     

@@ -10,14 +10,14 @@
     </nav>
 -->    
     <br>
-    <label class="myColorTheme" ng-hide="fotoLogin.loggedIn">Set User</label>
-    <select ng-hide="fotoLogin.loggedIn" ng-model="fotoLogin.currentUserName" ng-change="fotoLogin.setCurrentUser()">
+    <label class="myColorTheme" ng-hide="fotoLogin.fotoFactory.loggedIn">Set User</label>
+    <select ng-hide="fotoLogin.fotoFactory.loggedIn" ng-model="fotoLogin.fotoFactory.currentUserName" ng-change="fotoLogin.setCurrentUser()">
         <option selected>Select user</option>
-        <option ng-repeat="user in fotoLogin.fotoUsers" value="{{user.user}}">{{user.user}}</option>
+        <option ng-repeat="user in fotoLogin.fotoFactory.fotoUsers" value="{{user.user}}">{{user.user}}</option>
     </select>
     <br>
     <hr>
-    <button ng-show="fotoLogin.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.logout()">Logout</button>
+    <button ng-show="fotoLogin.fotoFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.logout()">Logout</button>
     <div class="row">
 
     </div>
