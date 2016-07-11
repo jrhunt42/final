@@ -95,17 +95,17 @@ function fotoFactory() {
       
       //create some static data
       // some foto objects
-      var johnFoto1 = new FotoObject("john", "../midterm/images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[], Date.now());
-      var bikeFoto1 = new FotoObject("bikenut","../midterm/images/06-IMG_2100.JPG","dummy caption",0, [], [], Date.now());
-      var bikeFoto2 = new FotoObject("bikenut","../midterm/images/IMGP0603.JPG","dummy caption",0,[], [], Date.now());
-      var kelseyFoto1 = new FotoObject("kelsey","../midterm/images/IMGP0017.JPG", "dummy caption", 0, [],[],Date.now());
-      var kelseyFoto2 = new FotoObject("kelsey","../midterm/images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],Date.now());
-      var mtndudeFoto1 = new FotoObject("mtndude","../midterm/images/DSC_0011.jpg","dummy caption",1,["craig"],[],Date.now());
-      var mtndudeFoto2 = new FotoObject("mtndude","../midterm/images/IMG_2573.jpg","dummy caption",0,[],[],Date.now());
-      var craigFoto1 = new FotoObject("craig","../midterm/images/IMGP1235.JPG","dummy caption",0,[],[],Date.now());
-      var craigFoto2 = new FotoObject("craig","../midterm/images/IMGP1211.JPG","dummy caption",0,[],[],Date.now());
-      var angieFoto1 = new FotoObject("angie","../midterm/images/IMGP0741.JPG","dummy caption",0,[],[],Date.now());
-      var angieFoto2 = new FotoObject("angie","../midterm/images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],Date.now());
+      var johnFoto1 = new FotoObject("john", "./images/IMGP1249.JPG", "dummy caption",2,["craig","angie"],[], Date.now());
+      var bikeFoto1 = new FotoObject("bikenut","./images/06-IMG_2100.JPG","dummy caption",0, [], [], Date.now());
+      var bikeFoto2 = new FotoObject("bikenut","./images/IMGP0603.JPG","dummy caption",0,[], [], Date.now());
+      var kelseyFoto1 = new FotoObject("kelsey","./images/IMGP0017.JPG", "dummy caption", 0, [],[],Date.now());
+      var kelseyFoto2 = new FotoObject("kelsey","./images/IMGP0473.JPG","dummy caption",3,["craig","angie","john"],[],Date.now());
+      var mtndudeFoto1 = new FotoObject("mtndude","./images/DSC_0011.jpg","dummy caption",1,["craig"],[],Date.now());
+      var mtndudeFoto2 = new FotoObject("mtndude","./images/IMG_2573.jpg","dummy caption",0,[],[],Date.now());
+      var craigFoto1 = new FotoObject("craig","./images/IMGP1235.JPG","dummy caption",0,[],[],Date.now());
+      var craigFoto2 = new FotoObject("craig","./images/IMGP1211.JPG","dummy caption",0,[],[],Date.now());
+      var angieFoto1 = new FotoObject("angie","./images/IMGP0741.JPG","dummy caption",0,[],[],Date.now());
+      var angieFoto2 = new FotoObject("angie","./images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],Date.now());
       
       
       // some users
