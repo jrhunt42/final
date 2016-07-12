@@ -6,13 +6,6 @@ function fotoFactory() {
 
       var sizeOfCarousel = 3;
 
-      function FotoUser(user, password, email, phone) {
-            this.user = user;
-            this.password = password;
-            this.email = email;
-            this.phone = phone;
-      }
-      
       function FotoObject(user, imgPath, caption, voteCount, voters, comments, timeStamp) {
             this.user = user;
             this.imgPath = imgPath;
@@ -27,19 +20,6 @@ function fotoFactory() {
             this.fotos = fotos;
       }
       
-//      CarouselFotos.prototype.getMinVoteCount = function() {
-//            //return the lowest vote count for the fotos currently in the carousel
-//            var minVoteCount = 0;
-//            if(this.fotos.length !== 0) {
-//                  for(var i=0; i<this.fotos.length; i++) {
-//                        if(this.fotos[i].voteCount < minVoteCount) {
-//                              minVoteCount = this.fotos[i].voteCount;
-//                        }
-//                  }
-//            }
-//            //console.log("getMinVoteCount returns: " + minVoteCount);
-//            return minVoteCount;
-//      }
       CarouselFotos.prototype.setCarouselFotos = function() {
             console.log("start setCarouselFotos");
             //remove any existing fotos in carousel
@@ -72,15 +52,6 @@ function fotoFactory() {
             }
       };
       
-//      CarouselFotos.prototype.fotoCarouselUpdate = function() {
-//
-//            // just rebuild carousel from scratch based on current data...since I already
-//            // have that function anyway
-//            console.log("fotoCarouselUpdate");
-//            this.setCarouselFotos();
-//            
-//      };
-      
       //sort carousel fotos by voteCount, lowest votes first
       function fotoSortByVote (foto1, foto2) {
             if(foto1.voteCount < foto2.voteCount) {
@@ -108,23 +79,15 @@ function fotoFactory() {
       var angieFoto2 = new FotoObject("angie","./images/08-IMG_2063.JPG","dummy caption",1,["craig"],[],Date.now());
       
       
-      // some users
-      var john = new FotoUser("john", "pwjohn", "abc@gmail.com", "123-456-7890");
-      var bikenut = new FotoUser("bikenut", "pwbikenut", "xyz@yahoo.com", "987-654-3210");
-      var kelsey = new FotoUser("kelsey", "pwkelsey", "wtf@hotmail.com", "303-867-5309");
-      var mtndude = new FotoUser("mtndude", "pwmtndude", "stfu@aol.com", "666-666-6666");
-      var craig = new FotoUser("craig", "pwcraig", "rtfm@gmail.com", "234-567-8901");
-      var angie = new FotoUser("angie", "pwangie", "aaa@yahoo.com", "876-543-2109");
-      
       //initial user list
-      var fotoUsers = {
-            "john":     john,
-            "bikenut":  bikenut,
-            "kelsey":   kelsey,
-            "mtndude":  mtndude,
-            "craig":    craig,
-            "angie":    angie
-      };
+//      var fotoUsers = {
+//           "john":     john,
+//            "bikenut":  bikenut,
+//            "kelsey":   kelsey,
+//            "mtndude":  mtndude,
+//            "craig":    craig,
+//            "angie":    angie
+//      };
       
       var fotoGallery = [
             johnFoto1,
@@ -143,8 +106,6 @@ function fotoFactory() {
             
       
       // set inital application states
-      var currentUser = john;
-      var loggedIn = true;
       var currentTitle = "Foto Challenge";
       
       //initial carousel
@@ -153,15 +114,15 @@ function fotoFactory() {
       
       return {
             //constructors
-            FotoUser:   FotoUser,
+//            FotoUser:   FotoUser,
             FotoObject: FotoObject,
             
             //instances
-            currentUser:      currentUser,
-            loggedIn:         loggedIn,
+//            currentUser:      currentUser,
+//            loggedIn:         loggedIn,
             currentTitle:     currentTitle,
             fotoCarousel :    fotoCarousel,
-            fotoUsers :   fotoUsers,
+//            fotoUsers :   fotoUsers,
             fotoGallery: fotoGallery
             
       };

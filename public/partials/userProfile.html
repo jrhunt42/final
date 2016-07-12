@@ -1,22 +1,13 @@
 <div class="container">
 
-<!--    <h1 class="jumbotron text-center">{{fotoUser.currentUser.user}} Profile</h1>
-
-    <nav class='tabs'>
-        <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ng-show="fotoUser.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
-        <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
-        <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
-    </nav>
--->    
     <div class="row">
         <br>
         <form class="form-group col-sm-4 col-sm-offset-1">
             <h4 class="text-center">My Fotos</h4>
             <div>
                 <h5>Contact Info</h5>
-                <p>Email: {{fotoUser.currentUser.email}}</p>
-                <p>Phone: {{fotoUser.currentUser.phone}}</p>
+                <p>Email: {{fotoUser.userFactory.currentUser.email}}</p>
+                <p>Phone: {{fotoUser.userFactory.currentUser.phone}}</p>
             </div>
         </form>
         <form class="col-sm-4 col-sm-offset-2">

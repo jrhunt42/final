@@ -1,24 +1,40 @@
-//DECLARE GLOBAL VARIABLES
+// declare globals
 var Express = require('express');
 var app = Express();
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
-//var apiRoutes = require('./api_routes'); //brings in module.exports = apiRouter
+var mongoose = require('mongoose');
+var apiRoutes = require('./api_routes');
 var port = process.env.PORT || 8999;
 
+// connect to database
+mongoose.connect('mongodb://localhost/fotowars',
+    function( error ){
+        if( error ) {
+            console.error('ERROR starting mongoose!', error);
+        } else {
+            console.log('Mongoose connected successfully');
+        }
+    });
 
-//APPLY MIDDLEWARE
-app.use(logger('dev'));//LOG ALL IN-COMING ROUTES
-app.use(bodyParser.json());//PARSE ALL FORM DATA TO JSON
-app.use(bodyParser.urlencoded({extended: true}));//ALLOW URL-ENCODED TO BE PARSED
-app.use(Express.static(path.join(__dirname, './public')));//SERVE YOUR PUBLIC FILES FOR THE FRONTEND
+// apply middleware
+app.use(Express.static(path.join(__dirname, './public'))); // serve public files to front end
+app.use(logger('dev')); // log all incoming routes
+app.use(bodyParser.json()); // parse all json form data
+app.use(bodyParser.urlencoded({extended: true})); // parse urlencoded form data
 
-//MOUNT THE API ROUTES
-//app.use('/api/v1', apiRoutes);
 
-//LISTEN ON A SPECIFIC PORT CHECK FOR ERROR
+// mount the api routes
+app.use('/api/v0', apiRoutes);
+
+//set up default for unrecognized routes
+app.use( function(req, res) {
+    res.status(404).send("unknown request");
+})
+
+// set up listen port for connections
 app.listen(port, function (err) {
   if ( !err ) console.log('Server is listening on port: ' + port);
-  if ( err )  console.log('Server Crashed!');
+  if ( err )  console.error('Server Crashed!');
 })

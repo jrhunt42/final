@@ -19,8 +19,12 @@
   "homepage": "https://github.com/jrhunt42/final#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "connect-multiparty": "^2.0.0",
     "express": "^4.14.0",
     "mongoose": "^4.5.3",
-    "morgan": "^1.7.0"
+    "mongoose-geojson-schema": "^2.1.1",
+    "mongoose-unique-validator": "^1.0.2",
+    "morgan": "^1.7.0",
+    "s3": "^4.4.0"
   }
 }

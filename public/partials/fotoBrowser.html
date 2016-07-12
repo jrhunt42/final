@@ -1,14 +1,5 @@
 <div class="container">
 
-<!--    <h1 class="jumbotron text-center">{{fotoBrowser.title}}</h1>
-
-    <nav class='tabs'>
-        <a ui-sref-active="active" ui-sref="home">Home</a>
-        <a ng-show="fotoBrowser.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
-        <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
-        <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
-    </nav>
--->
     <br>
     <div class="row">
         <div class="col-xs-12 form-group">
@@ -38,7 +29,7 @@
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
                 <p class="fotoInfo text-center">User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
-                <p ng-show="fotoBrowser.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
+                <p ng-show="fotoBrowser.userFactory.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
             </div>
         </div>
         

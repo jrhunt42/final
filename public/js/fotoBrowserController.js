@@ -1,16 +1,18 @@
 angular.module("fotoChallenge")
   .controller("fotoBrowserController",fotoBrowserController);
   
-  fotoBrowserController.$inject = ["fotoFactory"];
+  fotoBrowserController.$inject = ["fotoFactory", "userFactory"];
   
-  function fotoBrowserController(fotoFactory){
+  function fotoBrowserController(fotoFactory, userFactory){
     var fotoBrowser = this;
     console.log("fotoBrowserController");
 
     fotoFactory.currentTitle = "Gallery of Fotos";
-    fotoBrowser.currentUser = fotoFactory.currentUser;
-    fotoBrowser.loggedIn = fotoFactory.loggedIn;
-    fotoBrowser.fotoUsers = fotoFactory.fotoUsers;
+    fotoBrowser.fotoFactory = fotoFactory;
+    fotoBrowser.userFactory = userFactory;
+    //fotoBrowser.currentUser = fotoFactory.currentUser;
+    //fotoBrowser.loggedIn = fotoFactory.loggedIn;
+    //fotoBrowser.fotoUsers = fotoFactory.fotoUsers;
     fotoBrowser.fotoGallery = fotoFactory.fotoGallery;
     
     //set default sort field and ordering
@@ -21,7 +23,7 @@ angular.module("fotoChallenge")
       //console.log("fotoBrowser orderBy field, ordering"+ field + ":" +ordering);
       fotoBrowser.sortField = field;
       fotoBrowser.reverseOrdering = ordering;
-    }
+    };
     
     fotoBrowser.bigFoto = function(foto) {
       console.log("fotoBrowser bigFoto");
@@ -35,7 +37,7 @@ angular.module("fotoChallenge")
       // 2) currentUser can not already have voted for this foto
       //
       // first check to see if currentUser is owner
-      if(foto.user === fotoBrowser.currentUser.user) {
+      if(foto.user === userFactory.currentUser.username) {
         alert("Sorry, you can't vote for your own fotos");
         return;
       }
@@ -43,7 +45,7 @@ angular.module("fotoChallenge")
       // get index of this foto to access its voters list
       var index = fotoFactory.fotoGallery.indexOf(foto);
       //console.log("found foto at index: " +index);
-      if(fotoBrowser.fotoGallery[index].voters.indexOf(fotoBrowser.currentUser.user) !== -1) {
+      if(fotoFactory.fotoGallery[index].voters.indexOf(userFactory.currentUser.username) !== -1) {
         //currentUser has already voted for this foto, can't vote again
         alert("Sorry, you have already voted for this foto");
         return;
@@ -53,7 +55,7 @@ angular.module("fotoChallenge")
       var myCount = ++fotoFactory.fotoGallery[index].voteCount;
       
       // add this user to set of voters on this foto
-      fotoFactory.fotoGallery[index].voters.push(fotoBrowser.currentUser.user);
+      fotoFactory.fotoGallery[index].voters.push(userFactory.currentUser.username);
       
     };
     
