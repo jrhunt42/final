@@ -8,8 +8,8 @@ angular.module("fotoChallenge")
 
     fotoLogin.fotoFactory = fotoFactory;
     fotoLogin.userFactory = userFactory;
-    // get the current user list
     
+    // get the current user list
     userFactory.allUsers()
       .then (function(response) {
         console.log("fotoLogin get all users:", response.data);
@@ -19,10 +19,6 @@ angular.module("fotoChallenge")
         console.error("fotoLogin unable to get all users:", error);
       });
       
-    //fotoLogin.currentUser = fotoFactory.currentUser;
-    //fotoLogin.loggedIn = fotoFactory.loggedIn;
-    //fotoLogin.fotoGallery = fotoFactory.fotoGallery;
-    //fotoLogin.fotoUsers = fotoFactory.fotoUsers;
     if(userFactory.loggedIn) {
       fotoFactory.currentTitle = "Logout";
     } else {
@@ -30,15 +26,11 @@ angular.module("fotoChallenge")
     }
     
     fotoLogin.setCurrentUser = function() {
-      //console.log("fotoLogin setting currentUser, name =" + fotoLogin.currentUserName);
       for (var user in userFactory.fotoUsers) {
-        //console.log("fotoLogin checking:" + fotoFactory.fotoUsersList[user].user + " against " + fotoLogin.currentUserName);
         if(userFactory.fotoUsers[user].username === userFactory.selectedUser) {
           console.log("fotoLogin setting currentUser to:", userFactory.fotoUsers[user]);
-          //fotoLogin.currentUser = fotoFactory.fotoUsersList[user];
           userFactory.currentUser = userFactory.fotoUsers[user];
           userFactory.loggedIn = true;
-          //fotoLogin.loggedIn = true;
           fotoFactory.currentTitle = "Logout";
           
           return;
@@ -47,7 +39,6 @@ angular.module("fotoChallenge")
       console.log("Error - fotoLogin did not find currentUserName:" +userFactory.selectedUser);
       userFactory.currentUser = undefined;
       userFactory.loggedIn = false;
-      //fotoLogin.loggedIn = false;
       fotoFactory.currentTitle = "Login";
     };
     
@@ -55,7 +46,6 @@ angular.module("fotoChallenge")
       console.log("fotoLogin logging out");
       userFactory.currentUser = undefined;
       userFactory.loggedIn = false;
-      //fotoLogin.loggedIn = false;
       fotoFactory.currentTitle = "Login";
     };
     
@@ -78,11 +68,11 @@ angular.module("fotoChallenge")
         .then(function(response){
 
           //set logged in data to this new user
-          userFactory.currentUser = fotoLogin.newUser;
-          console.log("fotoLogin setting currentUser:", fotoFactory.currentUser);
+          userFactory.currentUser = response.data;
+          console.log("fotoLogin setting currentUser:", userFactory.currentUser);
           userFactory.loggedIn = true;
           // update collection of users
-          userFactory.fotoUsers[fotoLogin.newUser.username] = fotoLogin.newUser;
+          userFactory.fotoUsers[fotoLogin.newUser.username] = response.data;
           console.log("fotoLogin fotoUsers:", userFactory.fotoUsers);
           //reset form data
           fotoLogin.newUser = {};
@@ -93,12 +83,6 @@ angular.module("fotoChallenge")
           console.error("fotoLogin unable to create newUser:", error);
         });
 
-      //var newUser = new fotoFactory.FotoUser(fotoLogin.newUserName, fotoLogin.newUserPassword, fotoLogin.newUserEmail, fotoLogin.newUserPhone);
-      //fotoFactory.fotoUsers[fotoLogin.newUserName] = newUser;
-      //fotoFactory.currentUser = newUser;
-      //fotoFactory.loggedIn = true;
-      //fotoHome.loggedIn = true;
-      
     };
     
     fotoLogin.signUp = function() {

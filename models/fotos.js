@@ -8,7 +8,7 @@ var fotoSchema = mongoose.Schema({
 	voteCount   : { type: Number, default: 0 },
 	voters      : [ { type : mongoose.Schema.ObjectId, ref  : 'User'} ], // link to voters(other users) if any...
 	timeStamp   : { type: Date, default: Date.now },
-	theme       : { type: mongoose.Schema.ObjectId, ref: 'ContestTheme', required:true}, // link to contest themes
+	theme       : { type: String, default:"All", required:true}, // contest themes
 	location    : mongoose.Schema.Types.Point //geoJSON Point object = longitude,latitude for this foto
 
 });

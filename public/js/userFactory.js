@@ -8,7 +8,7 @@ function userFactory($http){
   console.log("userFactory constructor");
   var factoryObject = {};
   
-  factoryObject.fotoUsers = {};
+  factoryObject.fotoUsers = [];
   
   factoryObject.currentUser = undefined;
   factoryObject.loggedIn = false;

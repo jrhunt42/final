@@ -1,4 +1,4 @@
-angular.module("fotoChallenge",['ui.router', 'ngAnimate','ui.bootstrap'])
+angular.module("fotoChallenge",['ui.router', 'ngAnimate','ui.bootstrap', 'ngFileUpload'])
   .config(todoRouter)
   .directive('fileModel', ['$parse', function ($parse) {
      return {

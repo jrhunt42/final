@@ -28,7 +28,7 @@
             </div>
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
-                <p class="fotoInfo text-center">User = {{foto.user}},   Current vote count = {{foto.voteCount}}</p>
+                <p class="fotoInfo text-center">User = {{foto.user.username}},   Current vote count = {{foto.voteCount}}</p>
                 <p ng-show="fotoBrowser.userFactory.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
             </div>
         </div>
