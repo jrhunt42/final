@@ -9,7 +9,8 @@ var fotoSchema = mongoose.Schema({
 	voters      : [ { type : mongoose.Schema.ObjectId, ref  : 'User'} ], // link to voters(other users) if any...
 	timeStamp   : { type: Date, default: Date.now },
 	theme       : { type: String, default:"All", required:true}, // contest themes
-	location    : mongoose.Schema.Types.Point //geoJSON Point object = longitude,latitude for this foto
+	locationString: String,  //backend will try to geocode this to populate location object
+	point    : mongoose.Schema.Types.Point //geoJSON Point object = longitude,latitude for this foto
 
 });
 

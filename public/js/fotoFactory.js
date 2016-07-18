@@ -8,10 +8,15 @@ function fotoFactory($http) {
 
   var factoryObject = {};
   
-  factoryObject.themes = ['All', 'Animals', 'Flowers', 'People', 'Scenery'];
+  // note that "All" for this app means all fotos
+  factoryObject.themes = ['All', 'Animals', 'Flowers', 'People', 'Scenery', 'Sports'];
   
-  factoryObject.allFotos = function(){
-    return $http.get('/api/v0/fotos');
+  factoryObject.allFotos = function(query){
+    return $http({
+      method: "GET",
+      url: '/api/v0/fotos',
+      params: query
+    });
   };
   
   factoryObject.singleFoto = function(id){
@@ -34,7 +39,7 @@ function fotoFactory($http) {
   
   // set inital application states
   factoryObject.currentTitle = "Foto Challenge";
-  factoryObject.currentTheme = "All";
+  //factoryObject.currentTheme = "All";
 
 
   return factoryObject;

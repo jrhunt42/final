@@ -9,6 +9,22 @@ body {
     color:#EEEEEE;
 }
 
+.mapModal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  height: 400px;
+  position: fixed;
+  /* background: rgba(0, 0, 0, .6); */
+  background:#EEEEEE;
+  color: black;
+  overflow: scroll;
+  font-size: 16px;
+  border-radius: 8px;
+  z-index:1;
+}
+
 .contestInfo {
     float: right;
 }

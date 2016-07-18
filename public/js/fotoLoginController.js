@@ -1,8 +1,8 @@
 angular.module("fotoChallenge")
   .controller("fotoLoginController",fotoLoginController);
 
-    fotoLoginController.$inject = ["fotoFactory", "userFactory"];
-  function fotoLoginController(fotoFactory, userFactory){
+    fotoLoginController.$inject = ["fotoFactory", "userFactory", "$state"];
+  function fotoLoginController(fotoFactory, userFactory, $state){
     var fotoLogin = this;
     console.log("fotoLogin Controller, showNewUserForm= ", userFactory.showNewUserForm);
 
@@ -21,8 +21,10 @@ angular.module("fotoChallenge")
       
     if(userFactory.loggedIn) {
       fotoFactory.currentTitle = "Logout";
+      userFactory.navState = "Logout";
     } else {
       fotoFactory.currentTitle = "Login";
+      userFactory.navState = "Login/SignUp";
     }
     
     fotoLogin.setCurrentUser = function() {
@@ -32,6 +34,8 @@ angular.module("fotoChallenge")
           userFactory.currentUser = userFactory.fotoUsers[user];
           userFactory.loggedIn = true;
           fotoFactory.currentTitle = "Logout";
+          userFactory.navState = "Logout";
+          $state.go('userProfile');
           
           return;
         }
@@ -40,6 +44,7 @@ angular.module("fotoChallenge")
       userFactory.currentUser = undefined;
       userFactory.loggedIn = false;
       fotoFactory.currentTitle = "Login";
+      userFactory.navState = "Login/SignUp";
     };
     
     fotoLogin.logout = function() {
@@ -47,6 +52,7 @@ angular.module("fotoChallenge")
       userFactory.currentUser = undefined;
       userFactory.loggedIn = false;
       fotoFactory.currentTitle = "Login";
+      userFactory.navState = "Login/SignUp";
     };
     
     fotoLogin.createNewUser = function(){

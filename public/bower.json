@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/jrhunt42/final",
+  "authors": [
+    "jrhunt42 <jameshunt80303@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ngmap": "^1.17.3"
+  }
+}

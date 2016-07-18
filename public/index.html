@@ -18,6 +18,10 @@
     <script type="text/javascript" src="js/fotoHomeController.js"></script>
     <script type="text/javascript" src="js/fotoLoginController.js"></script>
     <script type="text/javascript" src="js/fotoCommonController.js"></script>
+    
+    <script type="text/javascript" src="/bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+    
             <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
@@ -31,11 +35,11 @@
             <a ui-sref-active="active" ui-sref="home">Home</a>
             <a ng-show="fotoCommon.userFactoryData.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
             <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
-            <a ui-sref-active="active" ui-sref="fotoLogin">Login/Logout</a>
+            <a ui-sref-active="active" ui-sref="fotoLogin">{{fotoCommon.userFactoryData.navState}}</a>
             <br>
         </nav>
     </div>
-    
+    <br>
     <ui-view></ui-view>
 
 

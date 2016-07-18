@@ -13,6 +13,24 @@ angular.module("fotoChallenge")
     fotoHome.showContestInfoForm = false;
     fotoHome.fotoGallery = [];
     
+    // set up default filter theme
+    fotoHome.currentTheme = fotoFactory.themes[0]; //theme[0]="All"
+    fotoHome.fotoQuery={
+      //theme: fotoHome.currentTheme
+    };
+    
+    fotoHome.setContestTheme = function(theme) {
+      console.log("fotoHome set contest: ", theme);
+      // if theme="all", find all fotos
+      if(theme === fotoFactory.themes[0]) {
+        fotoHome.fotoQuery={};
+      } else {
+        fotoHome.fotoQuery={
+          theme:  theme
+        };
+      }
+      fotoHome.getFotos(fotoHome.fotoQuery);
+    };
     fotoHome.showForm = function() {
       //console.log("show new user form");
       userFactory.showNewUserForm = true;
@@ -28,9 +46,9 @@ angular.module("fotoChallenge")
       fotoHome.showContestInfoForm = false;
     };
     
-    fotoHome.getFotos = function() {
+    fotoHome.getFotos = function(query) {
     //pass in query string?
-    fotoFactory.allFotos()
+    fotoFactory.allFotos(query)
       .then(function(response){
         console.log("fotoHome getFotos returned:", response);
         //now filter by theme?
@@ -45,7 +63,7 @@ angular.module("fotoChallenge")
     };
     
     // grab default fotos to use to build carousel
-    fotoHome.getFotos();
+    fotoHome.getFotos(fotoHome.fotoQuery);
     
     //initial carousel
     // carousel lives only in this controller because it is a front end "view" concept only
@@ -66,9 +84,9 @@ angular.module("fotoChallenge")
             
       // iterate thru all fotos, keeping the (sizeOfCarousel) highest vote getters in 
       // the carousel fotos array
-      console.log("setCarouselFotos step1");
+      //console.log("setCarouselFotos step1");
       for(var foto in fotoHome.fotoGallery) {
-        console.log("setCarouselFotos inside loop");
+        //console.log("setCarouselFotos inside loop");
           // until we have minimum number carousel fotos, just add each one
           if(this.fotos.length < fotoHome.sizeOfCarousel) {
               this.fotos.push(fotoHome.fotoGallery[foto]);

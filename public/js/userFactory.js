@@ -8,10 +8,11 @@ function userFactory($http){
   console.log("userFactory constructor");
   var factoryObject = {};
   
-  factoryObject.fotoUsers = [];
+  factoryObject.fotoUsers = {};
   
   factoryObject.currentUser = undefined;
   factoryObject.loggedIn = false;
+  factoryObject.navState = "Login/SignIn";
 
   factoryObject.allUsers = function(){
     return $http.get('/api/v0/users');

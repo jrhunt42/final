@@ -2,7 +2,7 @@
 
     <br>
     <div class="row">
-        <div class="col-xs-12 form-group">
+        <div class="col-xs-4 form-group">
             <h5 class="text-center">Sorting Options</h5>
             <div class="text-center">
                 <label class="radio-inline">
@@ -16,11 +16,50 @@
                 </label>
             </div>
         </div>
+        <div class="col-xs-4 form-group col-sm-offset-1 ">
+            <h5 class="text-center">Choose Contest Theme</h5>
+            <h5 class="text-center">Current theme: {{fotoBrowser.currentTheme}}</h5>
+            <div class="text-center" ng-repeat="theme in fotoBrowser.fotoFactory.themes">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option{{$index}}" ng-click="fotoBrowser.setContestTheme(theme)"> {{theme}}
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-2 form-group col-sm-offset-1">
+        <h5>Current Location</h5>
+        <p>lat={{fotoBrowser.latitude}}</p>
+        <p>long={{fotoBrowser.longitude}}</p>
+        <button ng-click="fotoBrowser.showMap('current')">Show Fotos near me</button>
+        </div>
     </div>
+    
+    <div class="mapModal" 
+        ng-if='fotoBrowser.showUserMap'>
+        <div>
+            <button class="btn btn-primary btn-sm fixedButton" ng-click='fotoBrowser.closeMap()'>Close</button>
+        </div>
+        <div>
+            <!--<ng-map #id="map"></ng-map>-->
+            <ng-map id="map" center="{{fotoBrowser.mapCenter}}" zoom="{{fotoBrowser.zoom}}" map-type-id="hybrid">
+                <marker ng-repeat="foto in fotoBrowser.fotoGallery" 
+                    position="{{ [foto.point.coordinates[1], foto.point.coordinates[0] ]}}"
+                    ng-mouseover="fotoBrowser.bigFoto">
+                    
+                </marker>
+            </ng-map>
+           <!--<li ng-repeat="foto in fotoBrowser.fotoGallery">-->
+           <!--    position={{foto.point.coordinates[1]}}, {{foto.point.coordinates[0]}}-->
+           <!--</li>-->
+<!--            <p>lat={{fotoBrowser.latitude}}</p>
+            <p>long={{fotoBrowser.longitude}}</p>
+-->
+        </div>
+    </div>
+    
     <div class="row">
         <hr>
     
-        <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoBrowser.fotoGallery | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
+        <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoBrowser.fotoGallery  | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
             <div class="panel-image hide-panel-body">
                 <a href="{{foto.imgPath}}" target="fotoReview">
                     <img class="panel-image-preview img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}}>
@@ -29,7 +68,10 @@
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
                 <p class="fotoInfo text-center">User = {{foto.user.username}},   Current vote count = {{foto.voteCount}}</p>
-                <p ng-show="fotoBrowser.userFactory.loggedIn" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
+                <p class="fotoInfo text-center">Caption = {{foto.caption}}</p>
+                <p ng-show="fotoBrowser.showVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
+                <p ng-show="fotoBrowser.showCancelVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.cancelVote(foto)">Cancel my vote</p>
+                <p button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.showMap(foto)">Map this Foto</p>
             </div>
         </div>
         
