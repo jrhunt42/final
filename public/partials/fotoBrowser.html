@@ -40,7 +40,7 @@
         </div>
         <div>
             <!--<ng-map #id="map"></ng-map>-->
-            <ng-map id="map" center="{{fotoBrowser.mapCenter}}" zoom="{{fotoBrowser.zoom}}" map-type-id="hybrid">
+            <ng-map id="map" center="{{fotoBrowser.mapCenter}}" zoom="{{fotoBrowser.zoom}}" map-type-id="hybrid" default-style="false">
                 <marker ng-repeat="foto in fotoBrowser.fotoGallery" 
                     position="{{ [foto.point.coordinates[1], foto.point.coordinates[0] ]}}"
                     ng-mouseover="fotoBrowser.bigFoto">

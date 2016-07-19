@@ -13,8 +13,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 600px;
-  height: 400px;
+  width: 75%;
+  height: 75%;
   position: fixed;
   /* background: rgba(0, 0, 0, .6); */
   background:#EEEEEE;
@@ -23,6 +23,12 @@ body {
   font-size: 16px;
   border-radius: 8px;
   z-index:1;
+}
+
+ng-map {
+  width: 100%;
+  height: 100% !important;
+  position: absolute;
 }
 
 .contestInfo {
