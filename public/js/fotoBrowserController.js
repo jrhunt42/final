@@ -12,6 +12,8 @@ angular.module("fotoChallenge")
     fotoBrowser.userFactory = userFactory;
     userFactory.showNewUserForm = false;
     fotoBrowser.showUserMap = false;
+    fotoBrowser.showBigFoto = false;
+    fotoBrowser.currentBigFoto = undefined;
     fotoBrowser.fotoGallery = [];
     fotoBrowser.latitude = 0;
     fotoBrowser.longitude = 0;
@@ -65,9 +67,16 @@ angular.module("fotoChallenge")
         });
     };
     
-    fotoBrowser.bigFoto = function(foto) {
+    fotoBrowser.bigFoto = function( event, foto) {
       console.log("fotoBrowser bigFoto");
       console.log(foto);
+      fotoBrowser.currentBigFoto = foto;
+      fotoBrowser.showBigFoto = true;
+    };
+    
+      fotoBrowser.closeBigFoto = function() {
+      console.log("fotoBrowser closeBigFoto");
+      fotoBrowser.showBigFoto = false;
     };
     
     ////////////////////////end foto query related stuff/////////////////////

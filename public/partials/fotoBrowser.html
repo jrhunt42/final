@@ -39,12 +39,10 @@
             <button class="btn btn-primary btn-sm fixedButton" ng-click='fotoBrowser.closeMap()'>Close</button>
         </div>
         <div>
-            <!--<ng-map #id="map"></ng-map>-->
             <ng-map id="map" center="{{fotoBrowser.mapCenter}}" zoom="{{fotoBrowser.zoom}}" map-type-id="hybrid" default-style="false">
-                <marker ng-repeat="foto in fotoBrowser.fotoGallery" 
+                <marker ng-repeat="foto in fotoBrowser.fotoGallery" track-by="$index" 
                     position="{{ [foto.point.coordinates[1], foto.point.coordinates[0] ]}}"
-                    ng-mouseover="fotoBrowser.bigFoto">
-                    
+                    on-click="fotoBrowser.bigFoto(foto)">
                 </marker>
             </ng-map>
            <!--<li ng-repeat="foto in fotoBrowser.fotoGallery">-->
@@ -56,14 +54,28 @@
         </div>
     </div>
     
+        <div class="fotoModal" 
+        ng-if='fotoBrowser.showBigFoto'>
+        <div>
+            <button class="btn btn-primary btn-sm fixedButton" ng-click='fotoBrowser.closeBigFoto()'>Close</button>
+        </div>
+        <div>
+            <p class="text-center">Near {{fotoBrowser.currentBigFoto.locationString}},  {{fotoBrowser.currentBigFoto.caption}}</p>
+            <img class="img-responsive bigFoto" ng-src={{fotoBrowser.currentBigFoto.imgPath}}>
+        </div>
+    </div>
+    
     <div class="row">
         <hr>
     
         <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoBrowser.fotoGallery  | orderBy:fotoBrowser.sortField:fotoBrowser.reverseOrdering ">
             <div class="panel-image hide-panel-body">
-                <a href="{{foto.imgPath}}" target="fotoReview">
-                    <img class="panel-image-preview img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}}>
+                <a ng-click="fotoBrowser.bigFoto($event,foto)">
+                    <img class="panel-image-preview img-responsive" ng-src={{foto.imgPath}}>
                 </a>
+                <!--<a href="{{foto.imgPath}}" target="fotoReview">-->
+                <!--    <img class="panel-image-preview img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}}>-->
+                <!--</a>-->
             </div>
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
@@ -75,16 +87,6 @@
             </div>
         </div>
         
-                    
-<!--
-            <a href="{{foto.imgPath}}" target="_top">
-                <img class="img-responsive" ng-click="fotoBrowser.bigFoto(foto)" ng-src={{foto.imgPath}} height=200px weight=200px>
-            </a>
--->
-
-            <!-- <div class="mySlide img-responsive" ng-style="{'background-image':'url('+foto.imgPath+')'}"></div> -->
-
     </div>
-    
     
 </div>

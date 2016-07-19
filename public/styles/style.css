@@ -13,8 +13,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 75%;
-  height: 75%;
+  width: 90%;
+  height: 90%;
   position: fixed;
   /* background: rgba(0, 0, 0, .6); */
   background:#EEEEEE;
@@ -31,6 +31,29 @@ ng-map {
   position: absolute;
 }
 
+.fotoModal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  height: 90%;
+  position: fixed;
+  background: rgba(238, 238, 238, .95);
+  /* background:#EEEEEE; */
+  color: black;
+  overflow: scroll;
+  font-size: 16px;
+  border-radius: 8px;
+  z-index:2;
+}
+
+.bigFoto {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .contestInfo {
     float: right;
 }
