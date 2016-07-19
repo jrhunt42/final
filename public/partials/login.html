@@ -1,39 +1,58 @@
 <div class="container">
 
     <br>
-    <label class="myColorTheme" ng-hide="fotoLogin.userFactory.loggedIn">Set User</label>
-    <select ng-hide="fotoLogin.userFactory.loggedIn" ng-model="fotoLogin.userFactory.selectedUser" ng-change="fotoLogin.setCurrentUser()">
+    <label class="myColorTheme" ng-hide="true">Set User</label>
+    <select ng-hide="true" ng-model="fotoLogin.userFactory.selectedUser" ng-change="fotoLogin.setCurrentUser()">
         <option selected>Select user</option>
         <option ng-repeat="user in fotoLogin.userFactory.fotoUsers" value="{{user.username}}">{{user.username}}</option>
     </select>
+    <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.login()">Login</button>
     <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.signUp()">Sign Up</button>
     <br>
     <hr>
     <button ng-show="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.logout()">Logout</button>
     
     <div class="row newUserForm myColorTheme" ng-show="fotoLogin.userFactory.showNewUserForm">
-      <hr>
-      <form ng-submit="fotoLogin.createNewUser()">
-        <div class="form-group ">
-          <label> User Name</label>
-          <input type="text" class="form-control" ng-model="fotoLogin.newUser.username" placeholder="User name">
-        </div>
-        <div class="form-group ">
-          <label> Password</label>
-          <input type="password" class="form-control" ng-model="fotoLogin.newUser.password" placeholder="Password">
-        </div>
-        <div class="form-group ">
-          <label> Email</label>
-          <input type="email" class="form-control" ng-model="fotoLogin.newUser.email" placeholder="Email">
-        </div>
-        <div class="form-group ">
-          <label> Phone Number</label>
-          <input type="tel" class="form-control" ng-model="fotoLogin.newUser.phone" placeholder="Phone">
-        </div>
-        <button type="submit" class="btn btn-default " >Sign Up</button>
-        <button type="submit" class="btn btn-default " ng-click="fotoLogin.cancelNewUser($event)">Cancel</button>
-      </form>
+      <div class="col-sm-4 col-sm-offset-4">
+          <form ng-submit="fotoLogin.createNewUser()">
+            <div class="form-group ">
+              <label> User Name</label>
+              <input type="text" class="form-control" ng-model="fotoLogin.newUser.username" placeholder="User name">
+            </div>
+            <div class="form-group ">
+              <label> Password</label>
+              <input type="password" class="form-control" ng-model="fotoLogin.newUser.password" placeholder="Password">
+            </div>
+            <div class="form-group ">
+              <label> Email</label>
+              <input type="email" class="form-control" ng-model="fotoLogin.newUser.email" placeholder="Email">
+            </div>
+            <div class="form-group ">
+              <label> Phone Number</label>
+              <input type="tel" class="form-control" ng-model="fotoLogin.newUser.phone" placeholder="Phone">
+            </div>
+            <button type="submit" class="btn btn-default " >Sign Up</button>
+            <button type="submit" class="btn btn-default " ng-click="fotoLogin.cancelNewUser($event)">Cancel</button>
+          </form>
+      </div>
     </div>
 
+    <div class="row newUserForm myColorTheme" ng-show="fotoLogin.showLoginForm">
+      <div class="col-sm-4 col-sm-offset-4">
+          <form ng-submit="fotoLogin.loginUser()">
+            <div class="form-group ">
+              <label> User Name</label>
+              <input type="text" class="form-control" ng-model="fotoLogin.loginUser.username" placeholder="User name">
+            </div>
+            <div class="form-group ">
+              <label> Password</label>
+              <input type="password" class="form-control" ng-model="fotoLogin.loginUser.password" placeholder="Password">
+            </div>
+    
+            <button type="submit" class="btn btn-default " >Login</button>
+            <button type="submit" class="btn btn-default " ng-click="fotoLogin.cancelLogin($event)">Cancel</button>
+          </form>
+      </div>
+    </div>
 
 </div>

@@ -8,6 +8,7 @@ angular.module("fotoChallenge")
 
     fotoLogin.fotoFactory = fotoFactory;
     fotoLogin.userFactory = userFactory;
+    fotoLogin.showLoginForm = false;
     
     // get the current user list
     userFactory.allUsers()
@@ -41,6 +42,37 @@ angular.module("fotoChallenge")
         }
       }
       console.log("Error - fotoLogin did not find currentUserName:" +userFactory.selectedUser);
+      userFactory.currentUser = undefined;
+      userFactory.loggedIn = false;
+      fotoFactory.currentTitle = "Login";
+      userFactory.navState = "Login/SignUp";
+    };
+    
+    fotoLogin.loginUser = function() {
+      console.log("checking for valid login, username::: password ", fotoLogin.loginUser.username, fotoLogin.loginUser.password)
+      for (var user in userFactory.fotoUsers) {
+        if(userFactory.fotoUsers[user].username === fotoLogin.loginUser.username) {
+          if(userFactory.fotoUsers[user].password === fotoLogin.loginUser.password) {
+            console.log("fotoLogin setting currentUser to:", userFactory.fotoUsers[user]);
+            userFactory.currentUser = userFactory.fotoUsers[user];
+            userFactory.loggedIn = true;
+            fotoFactory.currentTitle = "Logout";
+            userFactory.navState = "Logout";
+            fotoLogin.loginUser.username = "";
+            fotoLogin.loginUser.password = "";
+            $state.go('userProfile');
+            
+            return;
+          } else {
+            // invalid login
+            console.log("password check failed");
+            break;
+          }
+        }
+        console.log("check next user")
+      }
+      console.log("Error - fotoLogin did not find currentUserName:", fotoLogin.loginUser.username);
+      alert("Login failed");
       userFactory.currentUser = undefined;
       userFactory.loggedIn = false;
       fotoFactory.currentTitle = "Login";
@@ -83,6 +115,8 @@ angular.module("fotoChallenge")
           //reset form data
           fotoLogin.newUser = {};
           console.log("fotoLogin checking currentUser:", userFactory.currentUser);
+          
+          $state.go('userProfile');
 
         })
         .catch(function(error) {
@@ -95,9 +129,19 @@ angular.module("fotoChallenge")
       userFactory.showNewUserForm = true;
     };
     
+    fotoLogin.login = function() {
+      fotoLogin.showLoginForm = true;
+    }
+    
     fotoLogin.cancelNewUser = function(e) {
       console.log("cancel new user form");
       e.preventDefault();
       userFactory.showNewUserForm = false;
+    };
+    
+    fotoLogin.cancelLogin = function(e) {
+      console.log("cancel login form");
+      e.preventDefault();
+      fotoLogin.showLoginForm = false;
     };
   }
