@@ -16,20 +16,28 @@
                 </label>
             </div>
         </div>
-        <div class="col-xs-4 form-group col-sm-offset-1 ">
-            <h5 class="text-center">Choose Contest Theme</h5>
-            <h5 class="text-center">Current theme: {{fotoBrowser.currentTheme}}</h5>
-            <div class="text-center" ng-repeat="theme in fotoBrowser.fotoFactory.themes">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option{{$index}}" ng-click="fotoBrowser.setContestTheme(theme)"> {{theme}}
-                </label>
-            </div>
+        <!--<div class="col-xs-4 form-group col-sm-offset-1 ">-->
+        <!--    <h5 class="text-center">Choose Contest Theme</h5>-->
+        <!--    <h5 class="text-center">Current theme: {{fotoBrowser.currentTheme}}</h5>-->
+        <!--    <div class="text-center" ng-repeat="theme in fotoBrowser.fotoFactory.themes">-->
+        <!--        <label class="radio-inline">-->
+        <!--            <input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option{{$index}}" ng-click="fotoBrowser.setContestTheme(theme)"> {{theme}}-->
+        <!--        </label>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <div class="form-group col-sm-3 col-sm-offset-2">
+            <label>Choose Foto Theme</label>
+            <select ng-model="fotoBrowser.currentTheme" ng-change="fotoBrowser.setContestTheme()">
+              <option selected>Select contest theme</option>
+              <option ng-repeat="theme in fotoBrowser.fotoFactory.themes" value="{{theme}}">{{theme}}</option>
+            </select>
         </div>
-        <div class="col-xs-2 form-group col-sm-offset-1">
-        <h5>Current Location</h5>
-        <p>lat={{fotoBrowser.latitude}}</p>
-        <p>long={{fotoBrowser.longitude}}</p>
-        <button ng-click="fotoBrowser.showMap('current')">Show Fotos near me</button>
+        <!--<div class="col-xs-2 col-sm-offset-1">-->
+        <div>
+            <!--<h5>Current Location</h5>-->
+            <!--<p>lat={{fotoBrowser.latitude}}</p>-->
+            <!--<p>long={{fotoBrowser.longitude}}</p>-->
+            <button type="button" class="btn btn-default rightFloat" ng-click="fotoBrowser.showMap('current')">Show Fotos near me</button>
         </div>
     </div>
     

@@ -31,12 +31,13 @@
 </head>
 <body >
     <div class="container" ng-controller="fotoCommonController as fotoCommon">
-        <h1 class="jumbotron myJumbotron text-center">{{fotoCommon.factoryData.currentTitle}}</h1>
-        <nav class='tabs'>
-            <a ui-sref-active="active" ui-sref="home">Home</a>
-            <a ng-show="fotoCommon.userFactoryData.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
-            <a ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
-            <a ui-sref-active="active" ui-sref="fotoLogin">{{fotoCommon.userFactoryData.navState}}</a>
+        <!--<h1 class="jumbotron myJumbotron text-center">{{fotoCommon.factoryData.currentTitle}}</h1>-->
+        <h1 class=" myHeader text-center">{{fotoCommon.factoryData.currentTitle}}</h1>
+        <nav class='nav nav-tabs myNav'>
+            <a class='myNav' ui-sref-active="active" ui-sref="home">Home</a>
+            <a class='myNav'ng-show="fotoCommon.userFactoryData.loggedIn" ui-sref-active="active" ui-sref="userProfile">My Info</a>
+            <a class='myNav'ui-sref-active="active" ui-sref="fotoBrowser">Gallery</a>
+            <a class='myNav'ui-sref-active="active" ui-sref="fotoLogin">{{fotoCommon.userFactoryData.navState}}</a>
             <br>
         </nav>
     </div>

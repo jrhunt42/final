@@ -17,7 +17,7 @@ angular.module("fotoChallenge")
     fotoBrowser.fotoGallery = [];
     fotoBrowser.latitude = 0;
     fotoBrowser.longitude = 0;
-    fotoBrowser.zoom = 8;
+    fotoBrowser.zoom = 9;
     
     
     // set up default filter theme
@@ -42,7 +42,8 @@ angular.module("fotoChallenge")
     
     //////////////////foto get(query) related stuff///////////////////////////
     
-    fotoBrowser.setContestTheme = function(theme) {
+    fotoBrowser.setContestTheme = function() {
+      var theme = fotoBrowser.currentTheme;
       //console.log("fotoBrowser set contest: ", theme);
       if(theme === fotoFactory.themes[0]) {
         fotoBrowser.fotoQuery = {};

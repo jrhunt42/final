@@ -1,17 +1,24 @@
 <div class="container">
 
     <div class="row">
-      <button type="button" class="btn btn-default btn-lg col-sm-2" ng-click="fotoHome.showForm()">Join Contest</button>
+      <button type="button" class="btn btn-default col-sm-2" ng-click="fotoHome.showForm()">Join Contest</button>
+      <!--<div class="form-group col-sm-4 col-sm-offset-2">-->
+      <!--  <h5 class="text-center">Choose Contest Theme</h5>-->
+      <!--  <h5 class="text-center">Current theme: {{fotoHome.currentTheme}}</h5>-->
+      <!--  <div class="text-center" ng-repeat="theme in fotoHome.fotoFactory.themes">-->
+      <!--    <label class="radio-inline">-->
+      <!--        <input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option{{$index}}" ng-click="fotoHome.setContestTheme(theme)"> {{theme}}-->
+      <!--    </label>-->
+      <!--  </div>-->
+      <!--</div>-->
       <div class="form-group col-sm-4 col-sm-offset-2">
-        <h5 class="text-center">Choose Contest Theme</h5>
-        <h5 class="text-center">Current theme: {{fotoHome.currentTheme}}</h5>
-        <div class="text-center" ng-repeat="theme in fotoHome.fotoFactory.themes">
-          <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option{{$index}}" ng-click="fotoHome.setContestTheme(theme)"> {{theme}}
-          </label>
-        </div>
-        </div>
-      <button type="button" class="btn btn-default btn-lg contestInfo" ng-click="fotoHome.showInfoForm()">Contest Info</button>
+        <label>Choose Foto Theme</label>
+        <select ng-model="fotoHome.currentTheme" ng-change="fotoHome.setContestTheme()">
+          <option selected>Select contest theme</option>
+          <option ng-repeat="theme in fotoHome.fotoFactory.themes" value="{{theme}}">{{theme}}</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-default rightFloat" ng-click="fotoHome.showInfoForm()">Contest Info</button>
     </div>
     
     <div class="newUserForm myColorTheme" ng-show="fotoHome.showContestInfoForm">
@@ -53,7 +60,8 @@
             </div>
             <div class="panel-body"></div>
             <div class="carousel-caption">
-              <h4>Slide {{$index+1}}</h4>
+              <!--<h4>Slide {{$index+1}}</h4>-->
+              <h4>{{slide.caption}}</h4>
               <p>voteCount = {{slide.voteCount}}</p>
             </div>
         </uib-slide>

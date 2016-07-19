@@ -19,7 +19,8 @@ angular.module("fotoChallenge")
       //theme: fotoHome.currentTheme
     };
     
-    fotoHome.setContestTheme = function(theme) {
+    fotoHome.setContestTheme = function() {
+      var theme = fotoHome.currentTheme
       console.log("fotoHome set contest: ", theme);
       // if theme="all", find all fotos
       if(theme === fotoFactory.themes[0]) {

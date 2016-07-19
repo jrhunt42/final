@@ -6,7 +6,7 @@
         <option selected>Select user</option>
         <option ng-repeat="user in fotoLogin.userFactory.fotoUsers" value="{{user.username}}">{{user.username}}</option>
     </select>
-    <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.login()">Login</button>
+    <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.login()"> Login </button>
     <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.signUp()">Sign Up</button>
     <br>
     <hr>

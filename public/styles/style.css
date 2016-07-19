@@ -6,7 +6,8 @@ body {
 }
 
 .myColorTheme {
-    color:#EEEEEE;
+    /* color:#EEEEEE; */
+    color: #79b5e0;
 }
 
 .mapModal {
@@ -17,7 +18,8 @@ body {
   height: 90%;
   position: fixed;
   /* background: rgba(0, 0, 0, .6); */
-  background:#EEEEEE;
+  /* background:#EEEEEE; */
+  background: #79bfe0;
   color: black;
   overflow: scroll;
   font-size: 16px;
@@ -54,7 +56,7 @@ ng-map {
     margin-left: auto;
     margin-right: auto;
 }
-.contestInfo {
+.rightFloat {
     float: right;
 }
 
@@ -63,6 +65,19 @@ ng-map {
     list-style-position: inside;
 }
 
+.myHeader {
+    color: #2790db;
+    font-family: fantasy, cursive, serif;
+    font-weight: bold;
+    font-size: 84px;
+}
+
+.myNav {
+    color: #2790db;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px;
+}
 .jumbotron {
     font-size:84px;
     font-family: fantasy, cursive, serif;
@@ -70,24 +85,27 @@ ng-map {
 
 .btn-default {
     background:#EEEEEE;
+    /* background: #79b5e0 */;
 }
 
 .form-group {
-    background:#EEEEEE;
+    /* background:#EEEEEE; */
+    background: #79b5e0;
     border-radius:6px;
     color:black;
     padding:3px;
 }
 
 .fotoInfo {
-    background:#EEEEEE;
+    /* background:#EEEEEE; */
+    background: #79b5e0;
     border-radius:6px;
     color:black;
     /* max-width:75%; */
 }
 /* nav styling */
 nav.tabs {
-    background: #EEEEEE;
+    background: #79b5e0;
     max-width: 45%;
     margin: 0 auto;
     border-radius:6px;
@@ -119,7 +137,8 @@ nav.tabs active {
 }
 
 .panel-footer {
-    background:#EEEEEE;
+    /* background:#EEEEEE; */
+    background: #79b5e0;
 }
 
 .panel-image img {
