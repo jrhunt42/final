@@ -19,7 +19,7 @@ body {
   position: fixed;
   /* background: rgba(0, 0, 0, .6); */
   /* background:#EEEEEE; */
-  background: #2790db;
+  background: #1b6499;
   color: black;
   overflow: scroll;
   font-size: 16px;
@@ -40,9 +40,10 @@ ng-map {
   width: 90%;
   height: 90%;
   position: fixed;
-  background: rgba(238, 238, 238, .95);
+  /* background: rgba(238, 238, 238, .95); */
+  background: rgba(27, 100, 153, .95);
   /* background:#EEEEEE; */
-  color: black;
+  color: white;
   overflow: scroll;
   font-size: 16px;
   border-radius: 8px;
@@ -66,6 +67,12 @@ ng-map {
     font-weight: bold;
 }
 
+.myTextBox {
+    background: #93c7ed;
+    color: #333;
+    border-radius:6px;
+    padding:3px;
+}
 .myHeader {
     color: #2790db;
     font-family: fantasy, cursive, serif;
@@ -76,7 +83,7 @@ ng-map {
 .myNav {
     color: #2790db;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     margin: 10px;
 }
 .jumbotron {
@@ -85,7 +92,9 @@ ng-map {
 }
 
 .btn-default {
-    background:#EEEEEE;
+    background:#2790db;
+    font-weight: bold;
+    border-color: #333;
     /* background: #79b5e0 */;
 }
 
@@ -93,15 +102,15 @@ ng-map {
     /* background:#EEEEEE; */
     background: #2790db;
     border-radius:6px;
-    color:black;
+    color:#333;
     padding:3px;
 }
 
 .fotoInfo {
     /* background:#EEEEEE; */
-    background: #2790db;
+    /* background: #2790db; */
     border-radius:6px;
-    color:black;
+    color: #333;
     /* max-width:75%; */
 }
 /* nav styling */
@@ -118,10 +127,29 @@ nav.tabs a {
     padding: 10px 20px;
     margin-right: 1px;
     border-radius:6px;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+a:focus {
+    color: #e6e6e6;
+    text-decoration: none;
 }
 
 nav.tabs active { 
     background: #A0A0A0;
+    text-decoration: none;
+    color: #e6e6e6;
 }
 
 .nav-tabs {
@@ -143,7 +171,7 @@ nav.tabs active {
 
 .panel-footer {
     /* background:#EEEEEE; */
-    background: #2790db;
+    background: #93c7ed;
 }
 
 .panel-image img {
