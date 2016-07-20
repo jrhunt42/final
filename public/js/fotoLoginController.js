@@ -49,7 +49,7 @@ angular.module("fotoChallenge")
     };
     
     fotoLogin.loginUser = function() {
-      console.log("checking for valid login, username::: password ", fotoLogin.loginUser.username, fotoLogin.loginUser.password)
+      //console.log("checking for valid login, username::: password ", fotoLogin.loginUser.username, fotoLogin.loginUser.password)
       for (var user in userFactory.fotoUsers) {
         if(userFactory.fotoUsers[user].username === fotoLogin.loginUser.username) {
           if(userFactory.fotoUsers[user].password === fotoLogin.loginUser.password) {
@@ -107,14 +107,16 @@ angular.module("fotoChallenge")
 
           //set logged in data to this new user
           userFactory.currentUser = response.data;
-          console.log("fotoLogin setting currentUser:", userFactory.currentUser);
+          //console.log("fotoLogin setting currentUser:", userFactory.currentUser);
           userFactory.loggedIn = true;
           // update collection of users
           userFactory.fotoUsers[fotoLogin.newUser.username] = response.data;
-          console.log("fotoLogin fotoUsers:", userFactory.fotoUsers);
+          //console.log("fotoLogin fotoUsers:", userFactory.fotoUsers);
           //reset form data
           fotoLogin.newUser = {};
-          console.log("fotoLogin checking currentUser:", userFactory.currentUser);
+          //console.log("fotoLogin checking currentUser:", userFactory.currentUser);
+          fotoFactory.currentTitle = "Login";
+          userFactory.navState = "Login/SignUp";
           
           $state.go('userProfile');
 
@@ -134,13 +136,13 @@ angular.module("fotoChallenge")
     }
     
     fotoLogin.cancelNewUser = function(e) {
-      console.log("cancel new user form");
+      //console.log("cancel new user form");
       e.preventDefault();
       userFactory.showNewUserForm = false;
     };
     
     fotoLogin.cancelLogin = function(e) {
-      console.log("cancel login form");
+      //console.log("cancel login form");
       e.preventDefault();
       fotoLogin.showLoginForm = false;
     };

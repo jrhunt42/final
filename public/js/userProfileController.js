@@ -83,6 +83,7 @@ angular.module("fotoChallenge")
           fotoUser.newImg = {};
           fotoUser.newCaption = "";
           fotoUser.newTheme = "";
+          fotoUser.newLocation = "";
 
         })
         .catch(function(error) {

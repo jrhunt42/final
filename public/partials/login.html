@@ -1,6 +1,5 @@
 <div class="container">
 
-    <br>
     <label class="myColorTheme" ng-hide="true">Set User</label>
     <select ng-hide="true" ng-model="fotoLogin.userFactory.selectedUser" ng-change="fotoLogin.setCurrentUser()">
         <option selected>Select user</option>
@@ -8,9 +7,8 @@
     </select>
     <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.login()"> Login </button>
     <button ng-hide="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.signUp()">Sign Up</button>
-    <br>
-    <hr>
     <button ng-show="fotoLogin.userFactory.loggedIn" type="button" class="btn btn-default" ng-click="fotoLogin.logout()">Logout</button>
+    <br>
     
     <div class="row newUserForm myColorTheme" ng-show="fotoLogin.userFactory.showNewUserForm">
       <div class="col-sm-4 col-sm-offset-4">

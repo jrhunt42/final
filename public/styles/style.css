@@ -7,7 +7,7 @@ body {
 
 .myColorTheme {
     /* color:#EEEEEE; */
-    color: #79b5e0;
+    color: #2790db;
 }
 
 .mapModal {
@@ -19,7 +19,7 @@ body {
   position: fixed;
   /* background: rgba(0, 0, 0, .6); */
   /* background:#EEEEEE; */
-  background: #79bfe0;
+  background: #2790db;
   color: black;
   overflow: scroll;
   font-size: 16px;
@@ -63,6 +63,7 @@ ng-map {
 #contestForm {
     padding: 0;
     list-style-position: inside;
+    font-weight: bold;
 }
 
 .myHeader {
@@ -90,7 +91,7 @@ ng-map {
 
 .form-group {
     /* background:#EEEEEE; */
-    background: #79b5e0;
+    background: #2790db;
     border-radius:6px;
     color:black;
     padding:3px;
@@ -98,14 +99,14 @@ ng-map {
 
 .fotoInfo {
     /* background:#EEEEEE; */
-    background: #79b5e0;
+    background: #2790db;
     border-radius:6px;
     color:black;
     /* max-width:75%; */
 }
 /* nav styling */
 nav.tabs {
-    background: #79b5e0;
+    background: #2790db;
     max-width: 45%;
     margin: 0 auto;
     border-radius:6px;
@@ -123,6 +124,10 @@ nav.tabs active {
     background: #A0A0A0;
 }
 
+.nav-tabs {
+    border-bottom:0px;
+}
+
 /* from panels snippet */
 /*@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");*/
 
@@ -138,7 +143,7 @@ nav.tabs active {
 
 .panel-footer {
     /* background:#EEEEEE; */
-    background: #79b5e0;
+    background: #2790db;
 }
 
 .panel-image img {

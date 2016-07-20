@@ -1,6 +1,5 @@
 <div class="container">
 
-    <br>
     <div class="row">
         <!--<div class="col-xs-4 form-group">-->
         <!--    <h5 class="text-center">Sorting Options</h5>-->
@@ -32,7 +31,7 @@
         <!--        </label>-->
         <!--    </div>-->
         <!--</div>-->
-        <div class="form-group col-sm-3 col-sm-offset-2">
+        <div class="form-group col-sm-4 col-sm-offset-2">
             <label>Choose Foto Theme</label>
             <select ng-model="fotoBrowser.currentTheme" ng-change="fotoBrowser.setContestTheme()">
               <option selected>Select contest theme</option>
@@ -75,7 +74,9 @@
             <button class="btn btn-primary btn-sm fixedButton" ng-click='fotoBrowser.closeBigFoto()'>Close</button>
         </div>
         <div>
-            <p class="text-center">Near {{fotoBrowser.currentBigFoto.locationString}},  {{fotoBrowser.currentBigFoto.caption}}</p>
+            <strong>
+                <p class="text-center">Near {{fotoBrowser.currentBigFoto.locationString}},  {{fotoBrowser.currentBigFoto.caption}}</p>
+            </strong>
             <img class="img-responsive bigFoto" ng-src={{fotoBrowser.currentBigFoto.imgPath}}>
         </div>
     </div>
@@ -94,8 +95,10 @@
             </div>
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
-                <p class="fotoInfo text-center">User = {{foto.user.username}},   Current vote count = {{foto.voteCount}}</p>
-                <p class="fotoInfo text-center">Caption = {{foto.caption}}</p>
+                <strong>
+                    <p class="fotoInfo text-center">User = {{foto.user.username}},   Current vote count = {{foto.voteCount}}</p>
+                    <p class="fotoInfo text-center">Caption = {{foto.caption}}</p>
+                </strong>
                 <p ng-show="fotoBrowser.showVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
                 <p ng-show="fotoBrowser.showCancelVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.cancelVote(foto)">Cancel my vote</p>
                 <p button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.showMap(foto)">Map this Foto</p>
