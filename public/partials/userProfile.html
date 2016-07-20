@@ -46,6 +46,19 @@
     </div>
     <hr>
     
+    <div class="fotoModal" 
+        ng-if='fotoUser.showBigFoto'>
+        <div>
+            <button class="btn btn-primary btn-sm fixedButton" ng-click='fotoUser.closeBigFoto()'>Close</button>
+        </div>
+        <div>
+            <strong>
+                <p class="text-center">Near {{fotoUser.currentBigFoto.locationString}},  {{fotoUser.currentBigFoto.caption}}</p>
+            </strong>
+            <img class="img-responsive bigFoto" ng-src={{fotoUser.currentBigFoto.imgPath}}>
+        </div>
+    </div>
+    
     <div class="row">
 <!--
         <div class="col-xs-6" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView">
@@ -56,9 +69,13 @@
 -->
         <div class="col-sm-6 panel panel-default" ng-repeat="foto in fotoUser.fotoGallery | filter:fotoUser.currentUserView | orderBy:timestamp:true">
             <div class="panel-image hide-panel-body">
-                <a href="{{foto.imgPath}}" target="fotoReview">
+                <!--<a href="{{foto.imgPath}}" target="fotoReview">-->
+                <!--    <img class="panel-image-preview img-responsive" ng-src={{foto.imgPath}}>-->
+                <!--</a>-->
+                <a ng-click="fotoUser.bigFoto(foto)">
                     <img class="panel-image-preview img-responsive" ng-src={{foto.imgPath}}>
-                </a>
+                </a>    
+            
             </div>
             <div class="panel-body"></div>
             <div class="panel-footer text-center">

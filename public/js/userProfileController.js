@@ -11,6 +11,8 @@ angular.module("fotoChallenge")
     userFactory.showNewUserForm = false;
     fotoUser.showContactInfo = false;
     fotoUser.showAddFoto = false;
+    fotoUser.showBigFoto = false;
+    fotoUser.currentBigFoto = undefined;
     fotoFactory.currentTitle = userFactory.currentUser.username + " Profile";
     fotoUser.fotoGallery = [];
     fotoUser.newFoto = {};
@@ -136,6 +138,18 @@ angular.module("fotoChallenge")
     fotoUser.closeAddFoto = function() {
       fotoUser.showAddFoto = false;
     }
+    
+      fotoUser.bigFoto = function(foto) {
+      console.log("fotoUser bigFoto");
+      console.log(foto);
+      fotoUser.currentBigFoto = foto;
+      fotoUser.showBigFoto = true;
+    };
+    
+      fotoUser.closeBigFoto = function() {
+      console.log("fotoUser closeBigFoto");
+      fotoUser.showBigFoto = false;
+    };
     
     fotoUser.getFotos(fotoUser.userQuery);
 }
