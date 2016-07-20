@@ -26,11 +26,36 @@ angular.module("fotoChallenge")
       //theme: fotoBrowser.currentTheme
     };
     
+    
+    
     //////////////foto sorting stuff///////////////////////////
     ///////note that this may go away when I have time to move sorting to backend////////
     //set default sort field and ordering
+    fotoBrowser.currentSort = fotoFactory.sortOptions[0]; //sortOptions[0]="user"
     fotoBrowser.sortField = 'user';
     fotoBrowser.reverseOrdering = false;
+    
+    fotoBrowser.setCurrentSort = function() {
+      switch(fotoBrowser.currentSort) {
+        case fotoFactory.sortOptions[0]:
+          fotoBrowser.sortField = 'user';
+          fotoBrowser.reverseOrdering = false;
+          break;
+        case fotoFactory.sortOptions[1]:
+          fotoBrowser.sortField = 'voteCount';
+          fotoBrowser.reverseOrdering = true;
+          break;
+        case fotoFactory.sortOptions[2]:
+          fotoBrowser.sortField = 'timestamp';
+          fotoBrowser.reverseOrdering = true;
+          break;
+        default:
+          console.error("fotoBrowser unrecognized sort option");
+          fotoBrowser.sortField = 'user';
+          fotoBrowser.reverseOrdering = false;
+          break;
+      }
+    }
     
     fotoBrowser.setOrderBy = function(field,ordering) {
       //console.log("fotoBrowser orderBy field, ordering"+ field + ":" +ordering);

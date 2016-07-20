@@ -2,19 +2,26 @@
 
     <br>
     <div class="row">
-        <div class="col-xs-4 form-group">
-            <h5 class="text-center">Sorting Options</h5>
-            <div class="text-center">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-click="fotoBrowser.setOrderBy('user',false)"> UserName (default)
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-click="fotoBrowser.setOrderBy('voteCount',true)"> VoteCount (highest first)
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-click="fotoBrowser.setOrderBy('timestamp',true)"> NewestFotosFirst
-                </label>
-            </div>
+        <!--<div class="col-xs-4 form-group">-->
+        <!--    <h5 class="text-center">Sorting Options</h5>-->
+        <!--    <div class="text-center">-->
+        <!--        <label class="radio-inline">-->
+        <!--            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-click="fotoBrowser.setOrderBy('user',false)"> UserName (default)-->
+        <!--        </label>-->
+        <!--        <label class="radio-inline">-->
+        <!--            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-click="fotoBrowser.setOrderBy('voteCount',true)"> VoteCount (highest first)-->
+        <!--        </label>-->
+        <!--        <label class="radio-inline">-->
+        <!--            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-click="fotoBrowser.setOrderBy('timestamp',true)"> NewestFotosFirst-->
+        <!--        </label>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <div class="form-group col-sm-3 ">
+            <label>Sort Fotos By</label>
+            <select ng-model="fotoBrowser.currentSort" ng-change="fotoBrowser.setCurrentSort()">
+              <option selected>Select sort method</option>
+              <option ng-repeat="sort in fotoBrowser.fotoFactory.sortOptions" value="{{sort}}">{{sort}}</option>
+            </select>
         </div>
         <!--<div class="col-xs-4 form-group col-sm-offset-1 ">-->
         <!--    <h5 class="text-center">Choose Contest Theme</h5>-->

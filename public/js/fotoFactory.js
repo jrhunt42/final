@@ -10,6 +10,7 @@ function fotoFactory($http) {
   
   // note that "All" for this app means all fotos
   factoryObject.themes = ['All', 'Animals', 'Flowers', 'People', 'Scenery', 'Sports'];
+  factoryObject.sortOptions = ['Username', 'VoteCount', 'NewestFotosFirst'];
   
   factoryObject.allFotos = function(query){
     return $http({
