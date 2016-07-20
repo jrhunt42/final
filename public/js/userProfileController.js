@@ -9,6 +9,8 @@ angular.module("fotoChallenge")
     fotoUser.fotoFactory = fotoFactory;
     fotoUser.userFactory = userFactory;
     userFactory.showNewUserForm = false;
+    fotoUser.showContactInfo = false;
+    fotoUser.showAddFoto = false;
     fotoFactory.currentTitle = userFactory.currentUser.username + " Profile";
     fotoUser.fotoGallery = [];
     fotoUser.newFoto = {};
@@ -115,6 +117,24 @@ angular.module("fotoChallenge")
       console.log("fotoUser update foto info: ", foto)
       // TBD
       alert("feature not yet implemented")
+    }
+    
+    fotoUser.showContactForm = function() {
+      //console.log("show contact info")
+      fotoUser.showContactInfo = true;
+    }
+    
+    fotoUser.closeContactForm = function() {
+      //console.log("close contact info")    
+      fotoUser.showContactInfo = false;
+    }
+    
+    fotoUser.addFotoForm = function() {
+      fotoUser.showAddFoto = true;
+    }
+    
+    fotoUser.closeAddFoto = function() {
+      fotoUser.showAddFoto = false;
     }
     
     fotoUser.getFotos(fotoUser.userQuery);

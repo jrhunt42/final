@@ -2,38 +2,47 @@
 
     <div class="row">
         <br>
-        <form class="form-group col-sm-4 col-sm-offset-1">
-            <h4 class="text-center">My Contact Info</h4>
-            <div>
-                <strong>
-                    <p>Email: {{fotoUser.userFactory.currentUser.email}}</p>
-                    <p>Phone: {{fotoUser.userFactory.currentUser.phone}}</p>
-                </strong>
-                <button type="submit" class="btn btn-default" ng-click="fotoUser.updateProfile()">Update</button>
-            </div>
-        </form>
-        <form class="col-sm-4 col-sm-offset-2" >
-            <div class="form-group">
-                <label> Caption</label>
-                <input type="text" class="form-control" ng-model="fotoUser.newCaption" placeholder="caption for this foto">
-            </div>
-            <div class="form-group">
-                <label>Theme for this Foto</label>
-                <select ng-model="fotoUser.newTheme">
-                    <option selected>Select contest theme</option>
-                    <option ng-repeat="theme in fotoUser.fotoFactory.themes" value="{{theme}}">{{theme}}</option>
-                </select>
-            </div>
-            <div class="form-group" >
-                <label>Location for this Foto</label>
-                <input type="text" class="form-control" ng-model="fotoUser.newLocation" placeholder="city,state,country">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputFile">Choose Foto to Add</label>
-                <input type="file" ng-model="fotoUser.newImg" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select >
-            </div>
-            <button type="submit" class="btn btn-default" ng-click="fotoUser.addFoto(fotoUser.newImg)">Submit</button>
-        </form>
+        <button type="button" class="btn btn-default" ng-click="fotoUser.showContactForm()">My Contact Info</button>
+        <button type="button" class="btn btn-default" ng-click="fotoUser.addFotoForm()">Add Fotos</button>
+        <div ng-show="fotoUser.showContactInfo">
+            <form class="form-group col-sm-4 col-sm-offset-4">
+                <h4 class="text-center">My Contact Info</h4>
+                <div>
+                    <strong>
+                        <p>Email: {{fotoUser.userFactory.currentUser.email}}</p>
+                        <p>Phone: {{fotoUser.userFactory.currentUser.phone}}</p>
+                    </strong>
+                    <button type="submit" class="btn btn-default" ng-click="fotoUser.updateProfile()">Update</button>
+                    <button type="submit" class="btn btn-default " ng-click="fotoUser.closeContactForm()">Close</button>
+                </div>
+            </form>
+        </div>
+        
+        <div ng-show="fotoUser.showAddFoto">
+            <form class="col-sm-4 col-sm-offset-4" >
+                <div class="form-group">
+                    <label> Caption</label>
+                    <input type="text" class="form-control" ng-model="fotoUser.newCaption" placeholder="caption for this foto">
+                </div>
+                <div class="form-group">
+                    <label>Theme for this Foto</label>
+                    <select ng-model="fotoUser.newTheme">
+                        <option selected>Select contest theme</option>
+                        <option ng-repeat="theme in fotoUser.fotoFactory.themes" value="{{theme}}">{{theme}}</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label>Location for this Foto</label>
+                    <input type="text" class="form-control" ng-model="fotoUser.newLocation" placeholder="city,state,country">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Choose Foto to Add</label>
+                    <input type="file" ng-model="fotoUser.newImg" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select >
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="fotoUser.addFoto(fotoUser.newImg)">Submit</button>
+                <button type="submit" class="btn btn-default " ng-click="fotoUser.closeAddFoto()">Close</button>
+            </form>
+        </div>
     </div>
     <hr>
     
@@ -54,7 +63,7 @@
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
                 <strong>
-                    <p class="fotoInfo text-center">Current vote count = {{foto.voteCount}}, Theme = {{foto.theme}}</p>
+                    <p class="fotoInfo text-center">Current votes = {{foto.voteCount}}, Theme = {{foto.theme}}</p>
                     <p class="fotoInfo text-center">Caption = {{foto.caption}}</p>
                 </strong>
                 <p button type="button" class="btn btn-default btn-sm" ng-click="fotoUser.deleteFoto(foto)">Delete</p>

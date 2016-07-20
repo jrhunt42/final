@@ -96,8 +96,8 @@
             <div class="panel-body"></div>
             <div class="panel-footer text-center">
                 <strong>
-                    <p class="fotoInfo text-center">User = {{foto.user.username}},   Current vote count = {{foto.voteCount}}</p>
-                    <p class="fotoInfo text-center">Caption = {{foto.caption}}</p>
+                    <p class="fotoInfo text-center">{{foto.user.username}},   Votes = {{foto.voteCount}}</p>
+                    <p class="fotoInfo text-center">{{foto.caption}}</p>
                 </strong>
                 <p ng-show="fotoBrowser.showVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.newVote(foto)">Vote</p>
                 <p ng-show="fotoBrowser.showCancelVoteButton(foto)" button type="button" class="btn btn-default btn-sm" ng-click="fotoBrowser.cancelVote(foto)">Cancel my vote</p>
