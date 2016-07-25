@@ -100,6 +100,15 @@ angular.module("fotoChallenge")
       fotoBrowser.showBigFoto = true;
     };
     
+    fotoBrowser.showMarkerInfo = function ( event, foto) {
+      console.log("fotoBrowser mouseover, foto : ", foto.caption)
+      //TBD put up window with foto info for any foto at this position and an href
+    }
+    
+    fotoBrowser.closeMarkerInfo = function ( event, foto) {
+      console.log("fotoBrowser mouseout")
+    }
+    
       fotoBrowser.closeBigFoto = function() {
       console.log("fotoBrowser closeBigFoto");
       fotoBrowser.showBigFoto = false;
@@ -175,24 +184,9 @@ angular.module("fotoChallenge")
     
     fotoBrowser.newVote = function(foto) {
       //console.log("fotoBrowser.newVote with fotoUser:" + foto.user + " and currentUser: " + fotoBrowser.currentUser.user);
-      // check to make sure this user can vote on this foto
-      // 1) currentUser can not be foto owner
-      // 2) currentUser can not already have voted for this foto
-      //
-      // first check to see if currentUser is owner
-      //if(foto.user.username === userFactory.currentUser.username) {
-        //alert("Sorry, you can't vote for your own fotos");
-        //return;
-      //}
-      // now need to check if current user has already voted for this foto
-      // get index of this foto to access its voters list
-      //var index = fotoBrowser.fotoGallery.indexOf(foto);
-      //console.log("found foto at index: " +index);
-      //if(fotoBrowser.fotoGallery[index].voters.indexOf(userFactory.currentUser) !== -1) {
-        //currentUser has already voted for this foto, can't vote again
-        //alert("Sorry, you have already voted for this foto");
-        //return;
-      //}
+      // don't need to check here to make sure this user can vote on this foto because vote
+      // button is not presented unless valid
+
       
       // update the voteCount for this foto
       ++foto.voteCount;
@@ -213,7 +207,6 @@ angular.module("fotoChallenge")
     };
     
     fotoBrowser.cancelVote = function(foto) {
-      //TBD
       // update the voteCount for this foto
       --foto.voteCount;
       
@@ -272,6 +265,9 @@ angular.module("fotoChallenge")
         //   1: permission denied
         //   2: position unavailable (error response from location provider)
         //   3: timed out
+        // TBD maybe put up a dialog here asking user for some current location string??
+        // TBD or disable the "show near me" button with no location info
+        // TBD or catch the button press and inform user no location info
       };
       
       fotoBrowser.showMap = function(center) {

@@ -56,7 +56,7 @@
             <ng-map id="map" center="{{fotoBrowser.mapCenter}}" zoom="{{fotoBrowser.zoom}}" map-type-id="hybrid" default-style="false">
                 <marker ng-repeat="foto in fotoBrowser.fotoGallery" track-by="$index" 
                     position="{{ [foto.point.coordinates[1], foto.point.coordinates[0] ]}}"
-                    on-click="fotoBrowser.bigFoto(foto)">
+                    on-click="fotoBrowser.bigFoto(foto)" on-mouseover="fotoBrowser.showMarkerInfo(foto)">
                 </marker>
             </ng-map>
            <!--<li ng-repeat="foto in fotoBrowser.fotoGallery">-->
