@@ -9,7 +9,7 @@ angular.module("fotoChallenge")
     fotoLogin.fotoFactory = fotoFactory;
     fotoLogin.userFactory = userFactory;
     fotoLogin.showLoginForm = false;
-    
+
     // get the current user list
     userFactory.allUsers()
       .then (function(response) {
@@ -19,7 +19,7 @@ angular.module("fotoChallenge")
       .catch (function(error) {
         console.error("fotoLogin unable to get all users:", error);
       });
-      
+
     if(userFactory.loggedIn) {
       fotoFactory.currentTitle = "Logout";
       userFactory.navState = "Logout";
@@ -27,7 +27,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentTitle = "Login";
       userFactory.navState = "Login/SignUp";
     }
-    
+
     fotoLogin.setCurrentUser = function() {
       for (var user in userFactory.fotoUsers) {
         if(userFactory.fotoUsers[user].username === userFactory.selectedUser) {
@@ -37,7 +37,7 @@ angular.module("fotoChallenge")
           fotoFactory.currentTitle = "Logout";
           userFactory.navState = "Logout";
           $state.go('userProfile');
-          
+
           return;
         }
       }
@@ -47,7 +47,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentTitle = "Login";
       userFactory.navState = "Login/SignUp";
     };
-    
+
     fotoLogin.loginUser = function() {
       //console.log("checking for valid login, username::: password ", fotoLogin.loginUser.username, fotoLogin.loginUser.password)
       for (var user in userFactory.fotoUsers) {
@@ -61,7 +61,7 @@ angular.module("fotoChallenge")
             fotoLogin.loginUser.username = "";
             fotoLogin.loginUser.password = "";
             $state.go('userProfile');
-            
+
             return;
           } else {
             // invalid login
@@ -78,7 +78,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentTitle = "Login";
       userFactory.navState = "Login/SignUp";
     };
-    
+
     fotoLogin.logout = function() {
       console.log("fotoLogin logging out");
       userFactory.currentUser = undefined;
@@ -86,7 +86,7 @@ angular.module("fotoChallenge")
       fotoFactory.currentTitle = "Login";
       userFactory.navState = "Login/SignUp";
     };
-    
+
     fotoLogin.createNewUser = function(){
       //hide input form
       //process the submitted info to create a new foto user
@@ -115,9 +115,9 @@ angular.module("fotoChallenge")
           //reset form data
           fotoLogin.newUser = {};
           //console.log("fotoLogin checking currentUser:", userFactory.currentUser);
-          fotoFactory.currentTitle = "Login";
-          userFactory.navState = "Login/SignUp";
-          
+          fotoFactory.currentTitle = "Logout";
+          userFactory.navState = "Logout";
+
           $state.go('userProfile');
 
         })
@@ -126,21 +126,21 @@ angular.module("fotoChallenge")
         });
 
     };
-    
+
     fotoLogin.signUp = function() {
       userFactory.showNewUserForm = true;
     };
-    
+
     fotoLogin.login = function() {
       fotoLogin.showLoginForm = true;
     }
-    
+
     fotoLogin.cancelNewUser = function(e) {
       //console.log("cancel new user form");
       e.preventDefault();
       userFactory.showNewUserForm = false;
     };
-    
+
     fotoLogin.cancelLogin = function(e) {
       //console.log("cancel login form");
       e.preventDefault();
